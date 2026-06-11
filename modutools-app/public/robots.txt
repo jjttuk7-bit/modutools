@@ -1,0 +1,8 @@
+# 모두의 도구 (modutools) — robots.txt
+# 모든 검색엔진 봇이 자유롭게 색인할 수 있도록 허용합니다.
+
+User-agent: *
+Allow: /
+
+# 색인 우선순위 안내
+Sitemap: https://modutools.kr/sitemap.xml
