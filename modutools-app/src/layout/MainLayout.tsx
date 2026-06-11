@@ -65,6 +65,12 @@ export const MainLayout: React.FC = () => {
             <Link to="/guide" className="hover:text-white transition-colors">
               가이드
             </Link>
+            <Link to="/about" className="hover:text-white transition-colors">
+              소개
+            </Link>
+            <Link to="/terms" className="hover:text-white transition-colors">
+              이용약관
+            </Link>
             <Link to="/privacy" className="hover:text-white transition-colors">
               개인정보 보호
             </Link>

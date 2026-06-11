@@ -4,6 +4,8 @@ import MainLayout from './layout/MainLayout';
 import HomePage from './routes/HomePage';
 import PrivacyPage from './routes/PrivacyPage';
 import GuidePage from './routes/GuidePage';
+import AboutPage from './routes/AboutPage';
+import TermsPage from './routes/TermsPage';
 import BusinessHome from './routes/business/BusinessHome';
 import BusinessToolPage from './routes/business/BusinessToolPage';
 import QrHome from './routes/qr/QrHome';
@@ -52,6 +54,8 @@ export default function App() {
 
           <Route path="privacy" element={<PrivacyPage />} />
           <Route path="guide" element={<GuidePage />} />
+          <Route path="about" element={<AboutPage />} />
+          <Route path="terms" element={<TermsPage />} />
 
           <Route path="*" element={<Navigate to="/" replace />} />
         </Route>
