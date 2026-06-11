@@ -6,9 +6,33 @@ export interface AdSlotProps {
   type: AdType;
   label?: string;
   id?: string;
+  /**
+   * AdSense data-ad-slot 슬롯 ID. 승인 후 슬롯 단위로 생성한 ID를 넘긴다.
+   * 미지정 시 클라이언트 ID만 있는 단일 슬롯으로 동작한다.
+   */
+  slotId?: string;
 }
 
+/**
+ * AdSense 광고 자리.
+ *
+ * VITE_ADSENSE_CLIENT_ID 환경변수가 설정되지 않은 동안은 아무것도 렌더하지
+ * 않는다(빈 placeholder 도 노출하지 않음). AdSense 승인 심사 시 미완성 신호로
+ * 잡힐 수 있는 빈 광고 박스를 노출하지 않기 위한 안전 게이트.
+ *
+ * 승인 후:
+ *   Netlify 환경변수에 VITE_ADSENSE_CLIENT_ID=ca-pub-XXXXXXXXXXXXXXXX 추가하면
+ *   이 컴포넌트가 자동 활성화되고, 향후 실제 <ins class="adsbygoogle"> 코드로
+ *   교체된다.
+ */
 export const AdSlot: React.FC<AdSlotProps> = ({ type, label = '광고', id }) => {
+  const clientId = import.meta.env.VITE_ADSENSE_CLIENT_ID as string | undefined;
+
+  // 환경변수 미설정 → 광고 영역 자체를 노출하지 않음
+  if (!clientId) {
+    return null;
+  }
+
   const containerStyle =
     'w-full bg-slate-50 border border-dashed border-slate-200 rounded-lg flex flex-col items-center justify-center p-4 text-center transition-all';
   let sizeStyles = '';
