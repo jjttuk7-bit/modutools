@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
           </span>
           <span className="flex flex-col leading-tight">
             <span className="text-sm font-extrabold text-slate-900 tracking-tight group-hover:text-[#0F172A] dark:text-slate-100">
-              모두도구 · modutools
+              모두의 도구 · modutools
             </span>
             <span className="text-[10px] font-medium text-slate-500 dark:text-slate-400">
               회원가입 없이 바로 쓰는 무료 실무 도구

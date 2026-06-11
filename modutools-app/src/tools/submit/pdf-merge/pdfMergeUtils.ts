@@ -42,8 +42,8 @@ export async function mergePdfFiles(
 
   onProgress('PDF 합치는 중');
   mergedPdf.setTitle('합쳐진 통합 문서');
-  mergedPdf.setProducer('서류 정리함 PDF 합치기');
-  mergedPdf.setCreator('서류 정리함');
+  mergedPdf.setProducer('PDF 정리 도구 - PDF 합치기');
+  mergedPdf.setCreator('PDF 정리 도구');
 
   onProgress('파일 생성 중');
   const mergedPdfBytes = await mergedPdf.save();

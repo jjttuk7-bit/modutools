@@ -50,7 +50,7 @@ export const MainLayout: React.FC = () => {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
           <div className="space-y-1">
             <h4 className="text-sm font-bold text-white tracking-wide">
-              모두도구 · modutools
+              모두의 도구 · modutools
             </h4>
             <p className="text-xs text-slate-400 font-medium">
               {categoryList}까지 한 곳에서. 서버 전송 없이 브라우저에서 모든

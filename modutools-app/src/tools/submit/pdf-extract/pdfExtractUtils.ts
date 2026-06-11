@@ -129,8 +129,8 @@ export async function extractPdfPages(
 
   onProgress('PDF 합치는 중');
   newPdf.setTitle('추출된 PDF 파일');
-  newPdf.setProducer('서류 정리함 PDF 페이지 추출');
-  newPdf.setCreator('서류 정리함');
+  newPdf.setProducer('PDF 정리 도구 - PDF 페이지 추출');
+  newPdf.setCreator('PDF 정리 도구');
 
   onProgress('파일 생성 중');
   const newPdfBytes = await newPdf.save();

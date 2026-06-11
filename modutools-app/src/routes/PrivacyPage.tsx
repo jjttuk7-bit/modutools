@@ -14,7 +14,7 @@ export const PrivacyPage: React.FC = () => {
           서버에 보내지 않고, 저장하지 않습니다.
         </h1>
         <p className="text-sm text-slate-600 mt-3 leading-relaxed dark:text-slate-400">
-          모두도구의 모든 도구는 입력 값과 업로드한 파일을 외부 서버로 전송하지
+          모두의 도구의 모든 도구는 입력 값과 업로드한 파일을 외부 서버로 전송하지
           않습니다. 처리 결과 또한 사용자의 브라우저 메모리 안에서만 만들어집니다.
         </p>
         <div className="mt-5">

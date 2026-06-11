@@ -12,7 +12,7 @@ export const GuidePage: React.FC = () => {
         가이드
       </span>
       <h1 className="text-2xl md:text-3xl font-extrabold text-slate-900 tracking-tight mt-4 dark:text-slate-100">
-        모두도구 사용 안내
+        모두의 도구 사용 안내
       </h1>
       <p className="text-sm text-slate-600 mt-3 leading-relaxed dark:text-slate-400">
         {categories.length}개 카테고리에 담긴 {totalTools}개 실무 도구의 용도와
