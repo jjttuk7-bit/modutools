@@ -55,7 +55,7 @@ export const QrHomeContent: React.FC = () => {
             100% SECURE & LOCAL PROCESS
           </span>
           <h2 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-            대한민국 1등 안전한 무제한 <br className="sm:hidden" /> QR도구함
+            가입 없이 바로 쓰는 안전한 무제한 <br className="sm:hidden" /> QR도구함
           </h2>
           <p className="text-emerald-100 text-xs md:text-sm leading-relaxed font-light">
             매장 Wi-Fi 접속, 모바일 스마트 영접, 비즈니스 디지털명함 축약 등{' '}
