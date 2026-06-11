@@ -1,12 +1,18 @@
 import React from 'react';
 import { Info, Mail } from 'lucide-react';
 import PrivacyBadges from '../components/common/PrivacyBadges';
+import SeoHead from '../components/seo/SeoHead';
 
 const CONTACT_EMAIL = 'jjttuk7@gmail.com';
 
 export const AboutPage: React.FC = () => {
   return (
     <article className="bg-white border border-slate-200 rounded-3xl p-7 md:p-9 prose prose-slate max-w-none dark:bg-slate-900 dark:border-slate-800 dark:prose-invert">
+      <SeoHead
+        title="소개 — 모두의 도구를 만든 이유"
+        description="대한민국 사장님·프리랜서를 위한 무료 실무 도구함. 회원가입·서버 전송 없이 브라우저 안에서만 처리하는 모두의 도구의 운영 원칙과 25가지 도구를 소개합니다."
+        path="/about"
+      />
       <header className="not-prose mb-6">
         <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-full px-3 py-1.5 dark:text-emerald-300 dark:bg-emerald-950/40 dark:border-emerald-900">
           <Info className="w-3.5 h-3.5" />

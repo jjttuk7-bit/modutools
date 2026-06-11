@@ -1,10 +1,16 @@
 import React from 'react';
 import { ShieldCheck } from 'lucide-react';
 import PrivacyBadges from '../components/common/PrivacyBadges';
+import SeoHead from '../components/seo/SeoHead';
 
 export const PrivacyPage: React.FC = () => {
   return (
     <article className="bg-white border border-slate-200 rounded-3xl p-7 md:p-9 prose prose-slate max-w-none dark:bg-slate-900 dark:border-slate-800 dark:prose-invert">
+      <SeoHead
+        title="개인정보 처리방침 — 모두의 도구"
+        description="모두의 도구는 회원가입을 받지 않고, 입력값·업로드 파일을 서버로 전송하지 않습니다. 모든 처리는 브라우저 안에서만 일어나며 탭을 닫으면 즉시 휘발됩니다."
+        path="/privacy"
+      />
       <header className="not-prose mb-6">
         <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-full px-3 py-1.5 dark:text-emerald-300 dark:bg-emerald-950/40 dark:border-emerald-900">
           <ShieldCheck className="w-3.5 h-3.5" />

@@ -1,5 +1,6 @@
 import React from 'react';
 import { ScrollText, Mail } from 'lucide-react';
+import SeoHead from '../components/seo/SeoHead';
 
 const CONTACT_EMAIL = 'jjttuk7@gmail.com';
 const EFFECTIVE_DATE = '2026년 6월 11일';
@@ -7,6 +8,11 @@ const EFFECTIVE_DATE = '2026년 6월 11일';
 export const TermsPage: React.FC = () => {
   return (
     <article className="bg-white border border-slate-200 rounded-3xl p-7 md:p-9 prose prose-slate max-w-none dark:bg-slate-900 dark:border-slate-800 dark:prose-invert">
+      <SeoHead
+        title="이용약관 — 모두의 도구"
+        description="모두의 도구 서비스 이용약관. 책임 한계, 사장님 계산기 결과의 참고용 명시, 광고 게재 방침, 개인정보 보호, 분쟁 해결 등 10개조."
+        path="/terms"
+      />
       <header className="not-prose mb-6">
         <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-full px-3 py-1.5 dark:text-emerald-300 dark:bg-emerald-950/40 dark:border-emerald-900">
           <ScrollText className="w-3.5 h-3.5" />

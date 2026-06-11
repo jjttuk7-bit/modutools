@@ -1,12 +1,18 @@
 import React from 'react';
 import { BookOpen } from 'lucide-react';
 import { categories } from '../data/categories';
+import SeoHead from '../components/seo/SeoHead';
 
 export const GuidePage: React.FC = () => {
   const totalTools = categories.reduce((sum, c) => sum + c.tools.length, 0);
 
   return (
     <article className="bg-white border border-slate-200 rounded-3xl p-7 md:p-9 dark:bg-slate-900 dark:border-slate-800">
+      <SeoHead
+        title="가이드 — 모두의 도구 사용 안내"
+        description={`5개 카테고리 ${totalTools}가지 도구를 어떤 상황에서 어떻게 쓰는지 한눈에 모아 둔 가이드. 부가세 계산부터 QR·PDF 정리·썸네일·엑셀 정리까지.`}
+        path="/guide"
+      />
       <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-slate-700 bg-slate-100 border border-slate-200 rounded-full px-3 py-1.5 dark:text-slate-300 dark:bg-slate-800 dark:border-slate-700">
         <BookOpen className="w-3.5 h-3.5" />
         가이드

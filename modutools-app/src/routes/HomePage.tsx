@@ -3,12 +3,46 @@ import { Sparkles } from 'lucide-react';
 import { categories } from '../data/categories';
 import CategoryCard from '../components/common/CategoryCard';
 import PrivacyBadges from '../components/common/PrivacyBadges';
+import SeoHead, { SITE_URL, SITE_NAME } from '../components/seo/SeoHead';
 
 export const HomePage: React.FC = () => {
   const totalTools = categories.reduce((sum, c) => sum + c.tools.length, 0);
 
+  const websiteJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: SITE_NAME,
+    alternateName: 'modutools',
+    url: SITE_URL,
+    inLanguage: 'ko-KR',
+    description:
+      '회원가입 없이 바로 쓰는 사장님·프리랜서 무료 실무 도구함. 부가세·QR·PDF·썸네일·엑셀 정리 25가지.',
+  };
+
+  const organizationJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: SITE_NAME,
+    url: SITE_URL,
+    logo: `${SITE_URL}/og-image.png`,
+    contactPoint: [
+      {
+        '@type': 'ContactPoint',
+        email: 'jjttuk7@gmail.com',
+        contactType: 'customer support',
+        availableLanguage: ['Korean'],
+      },
+    ],
+  };
+
   return (
     <div className="space-y-10">
+      <SeoHead
+        title="모두의 도구 · 가입 없이 바로 쓰는 무료 실무 도구"
+        description={`사장님·프리랜서가 매일 쓰는 ${totalTools}가지 도구를 한 곳에서. 부가세·프리랜서 3.3% 계산, QR, PDF 정리, 썸네일, 엑셀 정리까지 회원가입 없이 무료. 모든 처리는 브라우저 안에서만 일어납니다.`}
+        path="/"
+        jsonLd={[websiteJsonLd, organizationJsonLd]}
+      />
       <section className="bg-white border border-slate-200 rounded-3xl p-7 md:p-9 dark:bg-slate-900 dark:border-slate-800">
         <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-slate-700 bg-slate-100 border border-slate-200 rounded-full px-3 py-1.5 dark:text-slate-300 dark:bg-slate-800 dark:border-slate-700">
           <Sparkles className="w-3.5 h-3.5" />

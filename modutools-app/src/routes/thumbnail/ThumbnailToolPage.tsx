@@ -2,6 +2,7 @@ import React, { lazy } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { categoryById } from '../../data/categories';
+import ToolSeoHead from '../../components/seo/ToolSeoHead';
 
 const YoutubeThumbnailTool = lazy(
   () => import('../../tools/thumbnail/youtube-thumbnail/YoutubeThumbnailTool'),
@@ -38,6 +39,7 @@ export default function ThumbnailToolPage() {
 
   return (
     <div className="space-y-4">
+      <ToolSeoHead categoryId="thumbnail" toolId={toolId!} />
       <Link
         to={category.path}
         className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-900"

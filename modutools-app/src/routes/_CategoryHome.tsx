@@ -2,14 +2,39 @@ import React from 'react';
 import type { CategoryMeta } from '../types/tool';
 import ToolCard from '../components/common/ToolCard';
 import PrivacyBadges from '../components/common/PrivacyBadges';
+import SeoHead, { SITE_URL, SITE_NAME } from '../components/seo/SeoHead';
 
 interface CategoryHomeProps {
   category: CategoryMeta;
 }
 
 export const CategoryHome: React.FC<CategoryHomeProps> = ({ category }) => {
+  const collectionJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `${category.name} — ${SITE_NAME}`,
+    description: category.desc,
+    url: `${SITE_URL}${category.path}`,
+    inLanguage: 'ko-KR',
+    isPartOf: { '@type': 'WebSite', name: SITE_NAME, url: SITE_URL },
+    hasPart: category.tools.map((t) => ({
+      '@type': 'SoftwareApplication',
+      name: t.name,
+      url: `${SITE_URL}${t.path}`,
+      applicationCategory: 'WebApplication',
+      operatingSystem: 'Web Browser',
+      description: t.desc,
+    })),
+  };
+
   return (
     <div className="space-y-8">
+      <SeoHead
+        title={`${category.name} — ${category.desc}`}
+        description={`${category.tagline}. ${category.desc}. ${category.tools.length}가지 도구를 회원가입 없이 무료로 사용하세요.`}
+        path={category.path}
+        jsonLd={collectionJsonLd}
+      />
       <section className="bg-white border border-slate-200 rounded-3xl p-7 md:p-9 dark:bg-slate-900 dark:border-slate-800">
         <span
           className={`inline-flex items-center gap-1.5 text-[11px] font-bold border rounded-full px-3 py-1.5 ${category.accentBg} ${category.accent}`}

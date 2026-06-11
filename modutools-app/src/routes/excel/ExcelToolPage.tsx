@@ -2,6 +2,7 @@ import React, { lazy } from 'react';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { categoryById } from '../../data/categories';
+import ToolSeoHead from '../../components/seo/ToolSeoHead';
 
 const RemoveDuplicatesTool = lazy(
   () => import('../../tools/excel/remove-duplicates/RemoveDuplicatesTool'),
@@ -36,6 +37,7 @@ export default function ExcelToolPage() {
 
   return (
     <div className="space-y-4">
+      <ToolSeoHead categoryId="excel" toolId={toolId!} />
       <Link
         to={category.path}
         className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-900"
