@@ -273,7 +273,7 @@ export const FreelancerTaxTool: React.FC = () => {
 
       <AdSlot type="responsive" label="기사 중간 광고" id="freelancer-mid-ad" />
 
-      <DisclaimerBox />
+      <DisclaimerBox variant="freelancer" />
 
       <BusinessSeo toolId="freelancer" />
     </div>

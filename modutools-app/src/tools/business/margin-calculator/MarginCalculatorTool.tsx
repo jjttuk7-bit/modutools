@@ -338,7 +338,7 @@ export const MarginCalculatorTool: React.FC = () => {
 
       <AdSlot type="responsive" label="기사 중간 광고" id="margin-mid-ad" />
 
-      <DisclaimerBox />
+      <DisclaimerBox variant="margin" />
 
       <BusinessSeo toolId="margin" />
     </div>

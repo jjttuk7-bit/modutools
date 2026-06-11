@@ -264,7 +264,7 @@ export const VatCalculatorTool: React.FC = () => {
 
       <AdSlot type="responsive" label="기사 중간 광고" id="vat-mid-ad" />
 
-      <DisclaimerBox />
+      <DisclaimerBox variant="vat" />
 
       <BusinessSeo toolId="vat" />
     </div>

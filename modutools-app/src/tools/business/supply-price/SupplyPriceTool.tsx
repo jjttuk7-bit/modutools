@@ -269,7 +269,7 @@ export const SupplyPriceTool: React.FC = () => {
 
       <AdSlot type="responsive" label="기사 중간 광고" id="supply-mid-ad" />
 
-      <DisclaimerBox />
+      <DisclaimerBox variant="supply" />
 
       <BusinessSeo toolId="supply" />
     </div>

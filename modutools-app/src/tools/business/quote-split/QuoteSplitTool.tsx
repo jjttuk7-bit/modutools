@@ -315,7 +315,7 @@ export const QuoteSplitTool: React.FC = () => {
 
       <AdSlot type="responsive" label="기사 중간 광고" id="quote-split-mid-ad" />
 
-      <DisclaimerBox />
+      <DisclaimerBox variant="quote" />
 
       <BusinessSeo toolId="quote" />
     </div>
