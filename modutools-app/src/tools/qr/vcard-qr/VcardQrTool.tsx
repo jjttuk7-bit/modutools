@@ -476,27 +476,7 @@ export const VcardQrTool: React.FC = () => {
         </div>
       </div>
 
-      <QrSeo
-        toolId="vcard-qr"
-        title="명함 QR코드가 필요한 경우"
-        subtitle="원룸, 프리랜서, 영업직, 영업 컨설턴트 및 인플루언서를 위한 비즈니스 가속화"
-        paragraphs={[
-          '• 종이 명함에 연락처 QR을 넣고 싶을 때',
-          '• 프로필 페이지나 포트폴리오에 연락처를 넣고 싶을 때',
-          '• 행사나 박람회에서 빠르게 연락처를 공유할 때',
-          '• 프리랜서나 소상공인이 고객에게 연락처를 전달할 때',
-        ]}
-        faqs={[
-          {
-            q: '연락처 정보가 서버에 저장되나요?',
-            a: '아니요. 입력한 연락처 정보는 서버에 저장되지 않고 브라우저에서만 QR로 변환됩니다.',
-          },
-          {
-            q: '명함 QR을 스캔하면 어떻게 되나요?',
-            a: '스마트폰에서 연락처 저장 화면이 열리거나 vCard 정보가 표시될 수 있습니다.',
-          },
-        ]}
-      />
+      <QrSeo toolId="vcard-qr" />
 
       <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 md:p-8 text-left mt-8" id="related-tools-box">
         <h4 className="text-sm font-bold text-slate-800 mb-4 flex items-center space-x-2">

@@ -600,27 +600,7 @@ export const QrDesignTool: React.FC = () => {
         </div>
       </div>
 
-      <QrSeo
-        toolId="qr-design"
-        title="QR코드를 꾸밀 때 주의할 점"
-        subtitle="세련된 화장 뒤에 숨겨진 정밀 동작성 수치 지침서"
-        paragraphs={[
-          '• 전경색과 배경색 대비를 충분히 유지해야 최고의 인식률이 보장됩니다.',
-          '• 로고를 너무 큰 크기비(예: 30% 초과)로 장착 시 QR 인식 불량이 발생합니다.',
-          '• 배포 완료 전에 카메라 폰 테스트를 꼭 하시는 습관을 권고드립니다.',
-          '• 고선명 오프라인 전시물 인쇄 영역에는 벡터 형식 포맷인 SVG를 추천합니다.',
-        ]}
-        faqs={[
-          {
-            q: '로고를 넣어도 예쁜 QR코드가 잘 인식되나요?',
-            a: '기본적으로 QR 규격의 Level-H(최고수준 복구능력 30%) 방식을 연산 탑재하여 일정 소실이 있어도 잘 읽히나, 오버레이 넓이가 커지면 동작에 장애가 되니 반드시 테스트 확인을 거치세요.',
-          },
-          {
-            q: '인쇄 디자이너는 어떤 파일을 사용하는 것이 최종적으로 좋나요?',
-            a: '현수막이나 판촉 카드, 엽서 인쇄시에는 화질 깨짐을 배제하는 SVG 벡터 파일 형태가 단연코 적합합니다.',
-          },
-        ]}
-      />
+      <QrSeo toolId="qr-design" />
 
       <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 md:p-8 text-left mt-8" id="related-tools-box">
         <h4 className="text-sm font-bold text-slate-800 mb-4 flex items-center space-x-2">

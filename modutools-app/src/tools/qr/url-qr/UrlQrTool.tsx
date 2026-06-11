@@ -354,29 +354,7 @@ export const UrlQrTool: React.FC = () => {
         </div>
       </div>
 
-      <QrSeo
-        toolId="url-qr"
-        title="URL QR코드가 필요한 경우"
-        subtitle="고객 접점을 극대화하는 가장 직관적이고 효율적인 오프라인 연결 수단"
-        paragraphs={[
-          '• 웹사이트 주소를 포스터에 넣을 때',
-          '• 블로그나 스마트스토어 링크를 공유할 때',
-          '• 유튜브 영상이나 채널을 안내할 때',
-          '• 구글폼, 설문, 예약 링크를 공유할 때',
-          '• 행사 안내 페이지를 QR로 연결할 때',
-        ]}
-        faqs={[
-          {
-            q: 'URL이 서버에 저장되나요?',
-            a: '아니요. 입력한 URL은 서버에 저장되지 않고 브라우저에서만 QR로 변환됩니다.',
-          },
-          {
-            q: 'QR코드는 무료로 다운로드할 수 있나요?',
-            a: '네. PNG와 SVG 형식으로 다운로드할 수 있습니다.',
-          },
-          { q: '인쇄용으로는 어떤 형식이 좋나요?', a: '인쇄용은 SVG 형식이 더 적합합니다.' },
-        ]}
-      />
+      <QrSeo toolId="url-qr" />
 
       <div
         className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 text-left space-y-4 shadow-sm"

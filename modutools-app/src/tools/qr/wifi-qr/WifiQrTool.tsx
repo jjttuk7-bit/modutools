@@ -396,27 +396,7 @@ export const WifiQrTool: React.FC = () => {
         </div>
       </div>
 
-      <QrSeo
-        toolId="wifi-qr"
-        title="와이파이 QR코드가 필요한 경우"
-        subtitle="손쉽게 스캔하는 자동 모바일 가전 연결 시스템"
-        paragraphs={[
-          '• 카페나 매장에서 손님에게 Wi-Fi를 안내할 때',
-          '• 사무실 방문객에게 Wi-Fi를 공유할 때',
-          '• 강의실이나 세미나장에서 접속 정보를 제공할 때',
-          '• 집들이나 모임에서 Wi-Fi 비밀번호를 쉽게 공유할 때',
-        ]}
-        faqs={[
-          {
-            q: 'Wi-Fi 비밀번호가 서버에 저장되나요?',
-            a: '아니요. 입력한 비밀번호는 서버에 저장되지 않습니다.',
-          },
-          {
-            q: 'QR을 스캔하면 바로 Wi-Fi에 연결되나요?',
-            a: '대부분의 스마트폰에서는 Wi-Fi 접속 정보가 표시되거나 연결 안내가 나타납니다.',
-          },
-        ]}
-      />
+      <QrSeo toolId="wifi-qr" />
 
       <div
         className="bg-white border border-slate-200 rounded-3xl p-6 md:p-8 text-left space-y-4 shadow-sm"

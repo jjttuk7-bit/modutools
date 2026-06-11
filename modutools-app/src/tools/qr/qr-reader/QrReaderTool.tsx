@@ -337,27 +337,7 @@ export const QrReaderTool: React.FC = () => {
         </div>
       </div>
 
-      <QrSeo
-        toolId="qr-reader"
-        title="QR 이미지 읽기가 필요한 경우"
-        subtitle="스마트폰 카메라 대체, 브라우저 스크린샷 1초 초고속 해독 방식"
-        paragraphs={[
-          '• 캡처한 QR코드의 링크를 확인하고 싶을 때',
-          '• 사진 속 QR 내용을 복사하고 싶을 때',
-          '• 오래된 이미지 속 QR이 어디로 연결되는지 확인하고 싶을 때',
-          '• QR코드 내용을 텍스트로 저장하고 싶을 때',
-        ]}
-        faqs={[
-          {
-            q: 'QR 이미지를 서버에 업로드하나요?',
-            a: '아니요. 이미지는 서버로 업로드되지 않고 브라우저 안에서만 순수 로컬 데이터로 작동하여 100% 프라이버시가 안전합니다.',
-          },
-          {
-            q: 'QR 내용을 복사할 수 있나요?',
-            a: '네. 읽은 결과를 편리하고 빠르게 텍스트 클립보드에 바로 복사할 수 있습니다.',
-          },
-        ]}
-      />
+      <QrSeo toolId="qr-reader" />
 
       <div className="bg-slate-50 border border-slate-200 rounded-3xl p-6 md:p-8 text-left mt-8" id="related-tools-box">
         <h4 className="text-sm font-bold text-slate-800 mb-4 flex items-center space-x-2">
