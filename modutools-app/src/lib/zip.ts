@@ -9,3 +9,13 @@ export async function createZipBlob(
   });
   return await zip.generateAsync({ type: 'blob' });
 }
+
+export async function createZipArchive(
+  files: { name: string; content: Blob }[],
+): Promise<Blob> {
+  const zip = new JSZip();
+  files.forEach((file) => {
+    zip.file(file.name, file.content);
+  });
+  return await zip.generateAsync({ type: 'blob' });
+}

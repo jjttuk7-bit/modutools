@@ -1,6 +1,6 @@
 import type { ComponentType, ReactNode } from 'react';
 
-export type CategoryId = 'business' | 'qr' | 'submit' | 'thumbnail' | 'mask';
+export type CategoryId = 'business' | 'qr' | 'submit' | 'thumbnail' | 'excel';
 
 export interface ToolMeta {
   id: string;

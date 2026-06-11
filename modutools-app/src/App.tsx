@@ -12,6 +12,8 @@ import SubmitHome from './routes/submit/SubmitHome';
 import SubmitToolPage from './routes/submit/SubmitToolPage';
 import ThumbnailHome from './routes/thumbnail/ThumbnailHome';
 import ThumbnailToolPage from './routes/thumbnail/ThumbnailToolPage';
+import ExcelHome from './routes/excel/ExcelHome';
+import ExcelToolPage from './routes/excel/ExcelToolPage';
 
 export default function App() {
   return (
@@ -39,6 +41,11 @@ export default function App() {
           <Route path="thumbnail">
             <Route index element={<ThumbnailHome />} />
             <Route path=":toolId" element={<ThumbnailToolPage />} />
+          </Route>
+
+          <Route path="excel">
+            <Route index element={<ExcelHome />} />
+            <Route path=":toolId" element={<ExcelToolPage />} />
           </Route>
 
           <Route path="mask" element={<Navigate to="/submit/pdf-mask" replace />} />
