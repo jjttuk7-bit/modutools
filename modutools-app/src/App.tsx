@@ -12,7 +12,6 @@ import SubmitHome from './routes/submit/SubmitHome';
 import SubmitToolPage from './routes/submit/SubmitToolPage';
 import ThumbnailHome from './routes/thumbnail/ThumbnailHome';
 import ThumbnailToolPage from './routes/thumbnail/ThumbnailToolPage';
-import MaskHome from './routes/mask/MaskHome';
 
 export default function App() {
   return (
@@ -42,7 +41,7 @@ export default function App() {
             <Route path=":toolId" element={<ThumbnailToolPage />} />
           </Route>
 
-          <Route path="mask" element={<MaskHome />} />
+          <Route path="mask" element={<Navigate to="/submit/pdf-mask" replace />} />
 
           <Route path="privacy" element={<PrivacyPage />} />
           <Route path="guide" element={<GuidePage />} />

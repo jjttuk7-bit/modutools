@@ -3,7 +3,7 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import { ArrowLeft } from 'lucide-react';
 import { categoryById } from '../../data/categories';
 
-const PdfMaskTool = lazy(() => import('../../tools/submit/pdf-mask/PdfMaskTool'));
+const PdfMaskTool = lazy(() => import('../../tools/mask/MaskTool'));
 const PhotoToPdfTool = lazy(() => import('../../tools/submit/photo-to-pdf/PhotoToPdfTool'));
 const ImageCompressTool = lazy(
   () => import('../../tools/submit/image-compress/ImageCompressTool'),

@@ -22,8 +22,6 @@ import {
   ShieldCheck,
   QrCode,
   Image as ImageIcon,
-  Eraser,
-  FileBadge,
 } from 'lucide-react';
 import type { CategoryMeta } from '../types/tool';
 
@@ -159,9 +157,9 @@ export const categories: CategoryMeta[] = [
       {
         id: 'pdf-mask',
         path: '/submit/pdf-mask',
-        name: 'PDF 마스킹',
-        desc: '개인정보 영역을 가리고 저장',
-        icon: <FileBadge className="w-4 h-4" />,
+        name: '안심 마스킹',
+        desc: 'PDF·이미지의 개인정보를 검정 박스로 가리고 새 PDF로 저장',
+        icon: <ShieldCheck className="w-4 h-4" />,
       },
       {
         id: 'image-compress',
@@ -217,26 +215,6 @@ export const categories: CategoryMeta[] = [
         name: '이미지 위 텍스트',
         desc: '사진에 카피·로고 합성',
         icon: <Type className="w-4 h-4" />,
-      },
-    ],
-  },
-  {
-    id: 'mask',
-    path: '/mask',
-    name: '안심마스킹',
-    shortName: '안심 마스킹',
-    desc: 'PDF / 이미지의 개인정보를 가리고 새 PDF로 저장',
-    tagline: '업로드 없음, 전송 없음',
-    accent: 'text-violet-700',
-    accentBg: 'bg-violet-50 border-violet-100',
-    icon: <ShieldCheck className="w-5 h-5" />,
-    tools: [
-      {
-        id: 'pdf-mask',
-        path: '/mask',
-        name: 'PDF 마스킹',
-        desc: '드래그로 가릴 영역을 지정',
-        icon: <Eraser className="w-4 h-4" />,
       },
     ],
   },
