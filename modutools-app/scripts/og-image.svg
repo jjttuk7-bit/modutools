@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F172A" />
+      <stop offset="100%" stop-color="#020617" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#10B981" />
+      <stop offset="100%" stop-color="#34D399" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Decorative subtle grid dots (right side) -->
+  <g opacity="0.08" fill="#FFFFFF">
+    <circle cx="980" cy="120" r="3" />
+    <circle cx="1040" cy="120" r="3" />
+    <circle cx="1100" cy="120" r="3" />
+    <circle cx="980" cy="180" r="3" />
+    <circle cx="1040" cy="180" r="3" />
+    <circle cx="1100" cy="180" r="3" />
+    <circle cx="980" cy="240" r="3" />
+    <circle cx="1040" cy="240" r="3" />
+    <circle cx="1100" cy="240" r="3" />
+  </g>
+
+  <!-- Top accent line -->
+  <rect x="80" y="80" width="60" height="4" rx="2" fill="url(#accent)" />
+
+  <!-- Eyebrow -->
+  <text x="80" y="125" font-family="-apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="22" font-weight="700" fill="#34D399" letter-spacing="2">
+    MODUTOOLS · 모두의 도구
+  </text>
+
+  <!-- Main title (1st line) -->
+  <text x="80" y="240" font-family="-apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="76" font-weight="900" fill="#FFFFFF" letter-spacing="-2">
+    가입 없이 바로 쓰는
+  </text>
+  <!-- Main title (2nd line) -->
+  <text x="80" y="335" font-family="-apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="76" font-weight="900" fill="#FFFFFF" letter-spacing="-2">
+    무료 실무 도구함.
+  </text>
+
+  <!-- Subtitle -->
+  <text x="80" y="400" font-family="-apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="26" font-weight="500" fill="#94A3B8">
+    서버 전송 없이 브라우저 안에서만 처리.
+  </text>
+
+  <!-- Category chips -->
+  <g font-family="-apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="22" font-weight="700">
+    <!-- Chip 1: 사장님 계산기 -->
+    <g>
+      <rect x="80" y="465" width="200" height="56" rx="28" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+      <text x="180" y="500" fill="#E2E8F0" text-anchor="middle">사장님 계산기</text>
+    </g>
+    <!-- Chip 2: QR 도구함 -->
+    <g>
+      <rect x="296" y="465" width="160" height="56" rx="28" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+      <text x="376" y="500" fill="#E2E8F0" text-anchor="middle">QR 도구함</text>
+    </g>
+    <!-- Chip 3: PDF 정리 도구 -->
+    <g>
+      <rect x="472" y="465" width="200" height="56" rx="28" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+      <text x="572" y="500" fill="#E2E8F0" text-anchor="middle">PDF 정리 도구</text>
+    </g>
+    <!-- Chip 4: 썸네일 도구함 -->
+    <g>
+      <rect x="688" y="465" width="200" height="56" rx="28" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+      <text x="788" y="500" fill="#E2E8F0" text-anchor="middle">썸네일 도구함</text>
+    </g>
+    <!-- Chip 5: 엑셀 정리 도구 -->
+    <g>
+      <rect x="904" y="465" width="200" height="56" rx="28" fill="#1E293B" stroke="#334155" stroke-width="1.5" />
+      <text x="1004" y="500" fill="#E2E8F0" text-anchor="middle">엑셀 정리 도구</text>
+    </g>
+  </g>
+
+  <!-- Footer line -->
+  <text x="80" y="580" font-family="-apple-system, 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif" font-size="20" font-weight="600" fill="#64748B">
+    회원가입 X · 결제 X · 광고 X · 5개 카테고리 · 25개 무료 도구
+  </text>
+
+  <!-- modutools.kr badge bottom right -->
+  <g>
+    <rect x="980" y="555" width="140" height="40" rx="20" fill="url(#accent)" />
+    <text x="1050" y="582" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="18" font-weight="800" fill="#0F172A" text-anchor="middle">modutools.kr</text>
+  </g>
+</svg>
