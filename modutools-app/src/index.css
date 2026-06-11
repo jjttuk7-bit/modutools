@@ -23,94 +23,96 @@ html.dark body {
   color: #f1f5f9;
 }
 
-/* ---------- 다크모드 글로벌 색상 override ----------
-   기존 도구 페이지들은 `bg-white`, `text-slate-900` 등 라이트 톤 클래스에
-   `dark:` 변형이 붙어 있지 않다. 일일이 손대는 대신 `.dark` 스코프에서
-   해당 유틸리티를 강제 override 한다. 이미 `dark:bg-...` 가 박혀 있는
-   요소는 후순위로 적용되어 그대로 동작한다. */
-html.dark .bg-white { background-color: #0f172a !important; }
-html.dark .bg-slate-50 { background-color: rgba(15, 23, 42, 0.6) !important; }
-html.dark .bg-slate-100 { background-color: #1e293b !important; }
-html.dark .bg-gray-50 { background-color: rgba(15, 23, 42, 0.6) !important; }
-html.dark .bg-gray-100 { background-color: #1e293b !important; }
-html.dark .bg-neutral-50 { background-color: rgba(15, 23, 42, 0.6) !important; }
-html.dark .bg-neutral-100 { background-color: #1e293b !important; }
-html.dark .bg-zinc-50 { background-color: rgba(15, 23, 42, 0.6) !important; }
-html.dark .bg-zinc-100 { background-color: #1e293b !important; }
+/* ---------- 다크모드 색상 override (도구·라우트 콘텐츠 한정) ----------
+   도구 페이지 25개는 `bg-white`, `text-slate-900` 등 라이트 톤 클래스에
+   `dark:` 변형이 붙어 있지 않다. 일일이 손대는 대신 `#main-content-area`
+   스코프(=MainLayout 안의 <Outlet/> 콘텐츠)에서 .dark 변형을 강제 주입한다.
+   헤더·푸터·사이드바·MobileToolTabs 는 #main-content-area 바깥이므로 자기네
+   dark: 변형이 그대로 살아남는다. */
 
-html.dark .border-slate-100 { border-color: #1e293b !important; }
-html.dark .border-slate-200 { border-color: #1e293b !important; }
-html.dark .border-slate-300 { border-color: #334155 !important; }
-html.dark .border-gray-100 { border-color: #1e293b !important; }
-html.dark .border-gray-150 { border-color: #1e293b !important; }
-html.dark .border-gray-200 { border-color: #1e293b !important; }
-html.dark .border-gray-300 { border-color: #334155 !important; }
-html.dark .border-neutral-100 { border-color: #1e293b !important; }
-html.dark .border-neutral-200 { border-color: #1e293b !important; }
-html.dark .border-zinc-200 { border-color: #1e293b !important; }
-html.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]) { border-color: #1e293b !important; }
-html.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) { border-color: #1e293b !important; }
-html.dark .divide-gray-100 > :not([hidden]) ~ :not([hidden]) { border-color: #1e293b !important; }
-html.dark .divide-gray-200 > :not([hidden]) ~ :not([hidden]) { border-color: #1e293b !important; }
+html.dark #main-content-area .bg-white { background-color: #0f172a; }
+html.dark #main-content-area .bg-slate-50 { background-color: rgba(15, 23, 42, 0.6); }
+html.dark #main-content-area .bg-slate-100 { background-color: #1e293b; }
+html.dark #main-content-area .bg-gray-50 { background-color: rgba(15, 23, 42, 0.6); }
+html.dark #main-content-area .bg-gray-100 { background-color: #1e293b; }
+html.dark #main-content-area .bg-neutral-50 { background-color: rgba(15, 23, 42, 0.6); }
+html.dark #main-content-area .bg-neutral-100 { background-color: #1e293b; }
+html.dark #main-content-area .bg-zinc-50 { background-color: rgba(15, 23, 42, 0.6); }
+html.dark #main-content-area .bg-zinc-100 { background-color: #1e293b; }
 
-html.dark .text-slate-900 { color: #f1f5f9 !important; }
-html.dark .text-slate-850 { color: #e2e8f0 !important; }
-html.dark .text-slate-800 { color: #e2e8f0 !important; }
-html.dark .text-slate-700 { color: #cbd5e1 !important; }
-html.dark .text-slate-600 { color: #94a3b8 !important; }
-html.dark .text-slate-655 { color: #94a3b8 !important; }
-html.dark .text-slate-500 { color: #94a3b8 !important; }
-html.dark .text-slate-400 { color: #64748b !important; }
-html.dark .text-slate-350 { color: #64748b !important; }
-html.dark .text-gray-900 { color: #f1f5f9 !important; }
-html.dark .text-gray-800 { color: #e2e8f0 !important; }
-html.dark .text-gray-700 { color: #cbd5e1 !important; }
-html.dark .text-gray-600 { color: #94a3b8 !important; }
-html.dark .text-gray-500 { color: #94a3b8 !important; }
-html.dark .text-gray-400 { color: #64748b !important; }
-html.dark .text-neutral-900 { color: #f1f5f9 !important; }
-html.dark .text-neutral-800 { color: #e2e8f0 !important; }
-html.dark .text-neutral-700 { color: #cbd5e1 !important; }
-html.dark .text-neutral-600 { color: #94a3b8 !important; }
-html.dark .text-neutral-500 { color: #94a3b8 !important; }
-html.dark .text-zinc-700 { color: #cbd5e1 !important; }
-html.dark .text-zinc-600 { color: #94a3b8 !important; }
+html.dark #main-content-area .border-slate-100 { border-color: #1e293b; }
+html.dark #main-content-area .border-slate-200 { border-color: #1e293b; }
+html.dark #main-content-area .border-slate-300 { border-color: #334155; }
+html.dark #main-content-area .border-gray-100 { border-color: #1e293b; }
+html.dark #main-content-area .border-gray-150 { border-color: #1e293b; }
+html.dark #main-content-area .border-gray-200 { border-color: #1e293b; }
+html.dark #main-content-area .border-gray-300 { border-color: #334155; }
+html.dark #main-content-area .border-neutral-100 { border-color: #1e293b; }
+html.dark #main-content-area .border-neutral-200 { border-color: #1e293b; }
+html.dark #main-content-area .border-zinc-200 { border-color: #1e293b; }
+html.dark #main-content-area .divide-slate-100 > :not([hidden]) ~ :not([hidden]) { border-color: #1e293b; }
+html.dark #main-content-area .divide-slate-200 > :not([hidden]) ~ :not([hidden]) { border-color: #1e293b; }
+html.dark #main-content-area .divide-gray-100 > :not([hidden]) ~ :not([hidden]) { border-color: #1e293b; }
+html.dark #main-content-area .divide-gray-200 > :not([hidden]) ~ :not([hidden]) { border-color: #1e293b; }
 
-/* placeholder · disabled · ring 색상 보정 */
-html.dark input::placeholder,
-html.dark textarea::placeholder { color: #64748b !important; }
-html.dark .placeholder\:text-slate-400::placeholder { color: #64748b !important; }
-html.dark .placeholder\:text-slate-500::placeholder { color: #64748b !important; }
-html.dark .ring-slate-200 { --tw-ring-color: #1e293b !important; }
-html.dark .ring-slate-300 { --tw-ring-color: #334155 !important; }
-html.dark .ring-gray-200 { --tw-ring-color: #1e293b !important; }
+html.dark #main-content-area .text-slate-900 { color: #f1f5f9; }
+html.dark #main-content-area .text-slate-850 { color: #e2e8f0; }
+html.dark #main-content-area .text-slate-800 { color: #e2e8f0; }
+html.dark #main-content-area .text-slate-700 { color: #cbd5e1; }
+html.dark #main-content-area .text-slate-600 { color: #94a3b8; }
+html.dark #main-content-area .text-slate-655 { color: #94a3b8; }
+html.dark #main-content-area .text-slate-500 { color: #94a3b8; }
+html.dark #main-content-area .text-slate-400 { color: #64748b; }
+html.dark #main-content-area .text-slate-350 { color: #64748b; }
+html.dark #main-content-area .text-gray-900 { color: #f1f5f9; }
+html.dark #main-content-area .text-gray-800 { color: #e2e8f0; }
+html.dark #main-content-area .text-gray-700 { color: #cbd5e1; }
+html.dark #main-content-area .text-gray-600 { color: #94a3b8; }
+html.dark #main-content-area .text-gray-500 { color: #94a3b8; }
+html.dark #main-content-area .text-gray-400 { color: #64748b; }
+html.dark #main-content-area .text-neutral-900 { color: #f1f5f9; }
+html.dark #main-content-area .text-neutral-800 { color: #e2e8f0; }
+html.dark #main-content-area .text-neutral-700 { color: #cbd5e1; }
+html.dark #main-content-area .text-neutral-600 { color: #94a3b8; }
+html.dark #main-content-area .text-neutral-500 { color: #94a3b8; }
+html.dark #main-content-area .text-zinc-700 { color: #cbd5e1; }
+html.dark #main-content-area .text-zinc-600 { color: #94a3b8; }
+
+/* placeholder · ring 보정 */
+html.dark #main-content-area input::placeholder,
+html.dark #main-content-area textarea::placeholder { color: #64748b; }
+html.dark #main-content-area .placeholder\:text-slate-400::placeholder { color: #64748b; }
+html.dark #main-content-area .placeholder\:text-slate-500::placeholder { color: #64748b; }
+html.dark #main-content-area .ring-slate-200 { --tw-ring-color: #1e293b; }
+html.dark #main-content-area .ring-slate-300 { --tw-ring-color: #334155; }
+html.dark #main-content-area .ring-gray-200 { --tw-ring-color: #1e293b; }
 
 /* hover 상태 (slate hover background) */
-html.dark .hover\:bg-slate-50:hover { background-color: rgba(30, 41, 59, 0.6) !important; }
-html.dark .hover\:bg-slate-100:hover { background-color: #1e293b !important; }
-html.dark .hover\:bg-gray-50:hover { background-color: rgba(30, 41, 59, 0.6) !important; }
-html.dark .hover\:bg-gray-100:hover { background-color: #1e293b !important; }
-html.dark .hover\:border-slate-300:hover { border-color: #334155 !important; }
-html.dark .hover\:border-gray-300:hover { border-color: #334155 !important; }
+html.dark #main-content-area .hover\:bg-slate-50:hover { background-color: rgba(30, 41, 59, 0.6); }
+html.dark #main-content-area .hover\:bg-slate-100:hover { background-color: #1e293b; }
+html.dark #main-content-area .hover\:bg-gray-50:hover { background-color: rgba(30, 41, 59, 0.6); }
+html.dark #main-content-area .hover\:bg-gray-100:hover { background-color: #1e293b; }
+html.dark #main-content-area .hover\:border-slate-300:hover { border-color: #334155; }
+html.dark #main-content-area .hover\:border-gray-300:hover { border-color: #334155; }
 
-/* 입력창 흰 배경 유지하는 곳을 위한 input/textarea 보정 */
-html.dark input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='color']):not([type='file']),
-html.dark textarea,
-html.dark select {
+/* 입력창 흰 배경 유지하는 곳을 위한 input/textarea/select 보정 */
+html.dark #main-content-area input:not([type='checkbox']):not([type='radio']):not([type='range']):not([type='color']):not([type='file']),
+html.dark #main-content-area textarea,
+html.dark #main-content-area select {
   background-color: #0f172a;
   color: #f1f5f9;
   border-color: #1e293b;
 }
 
 /* prose 본문 다크 대응(이미 dark:prose-invert 가 붙은 곳은 영향 없음) */
-html.dark .prose { color: #cbd5e1; }
-html.dark .prose :where(h1, h2, h3, h4, strong) { color: #f1f5f9; }
-html.dark .prose :where(a) { color: #93c5fd; }
+html.dark #main-content-area .prose { color: #cbd5e1; }
+html.dark #main-content-area .prose :where(h1, h2, h3, h4, strong) { color: #f1f5f9; }
+html.dark #main-content-area .prose :where(a) { color: #93c5fd; }
 
 /* shadow 톤 보정 */
-html.dark .shadow-sm,
-html.dark .shadow,
-html.dark .shadow-md,
-html.dark .shadow-2xs {
+html.dark #main-content-area .shadow-sm,
+html.dark #main-content-area .shadow,
+html.dark #main-content-area .shadow-md,
+html.dark #main-content-area .shadow-2xs {
   --tw-shadow-color: rgba(0, 0, 0, 0.6);
 }
