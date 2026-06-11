@@ -5,6 +5,9 @@ node_modules/
 dist/
 build/
 
+# Auto-generated at build time (prebuild script regenerates with current date)
+modutools-app/public/sitemap.xml
+
 # Environment
 .env
 .env.local
