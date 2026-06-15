@@ -82,7 +82,7 @@ Netlify Dashboard → Environment variables
 - [ ] 모든 카테고리 페이지가 정상 렌더 (`/business`, `/qr`, `/submit`, `/thumbnail`, `/excel`)
 - [ ] 도구 25개 중 임의 표본 5개를 클릭해 정상 동작 확인
 - [ ] `/about`, `/terms`, `/privacy`, `/guide` 4개 정적 페이지 정상 노출
-- [ ] 푸터에 운영자 이메일 노출 (`jjttuk7@gmail.com`)
+- [ ] 푸터에 운영자 이메일 노출 (`monglesb@gmail.com`)
 - [ ] 다크모드 토글 정상
 
 ### 3-2. 색인·SEO 점검
@@ -97,7 +97,7 @@ Netlify Dashboard → Environment variables
 ### 3-3. 운영 점검 (정성적)
 
 - 가능하면 **신청 전 사이트 운영 1~2개월** + 일일 방문자 30명 이상 누적이면 승인률 ↑
-- AdSense 신청 시 입력하는 이메일 = 결제 받을 Google 계정 = `jjttuk7@gmail.com`
+- AdSense 신청 시 입력하는 이메일 = 결제 받을 Google 계정 = `monglesb@gmail.com`
 
 ### 3-4. AdSense 신청
 

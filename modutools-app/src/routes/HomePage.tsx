@@ -28,7 +28,7 @@ export const HomePage: React.FC = () => {
     contactPoint: [
       {
         '@type': 'ContactPoint',
-        email: 'jjttuk7@gmail.com',
+        email: 'monglesb@gmail.com',
         contactType: 'customer support',
         availableLanguage: ['Korean'],
       },

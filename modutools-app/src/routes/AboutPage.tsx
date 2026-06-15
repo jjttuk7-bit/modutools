@@ -3,7 +3,7 @@ import { Info, Mail } from 'lucide-react';
 import PrivacyBadges from '../components/common/PrivacyBadges';
 import SeoHead from '../components/seo/SeoHead';
 
-const CONTACT_EMAIL = 'jjttuk7@gmail.com';
+const CONTACT_EMAIL = 'monglesb@gmail.com';
 
 export const AboutPage: React.FC = () => {
   return (

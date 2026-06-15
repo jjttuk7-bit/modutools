@@ -2,7 +2,7 @@ import React from 'react';
 import { ScrollText, Mail } from 'lucide-react';
 import SeoHead from '../components/seo/SeoHead';
 
-const CONTACT_EMAIL = 'jjttuk7@gmail.com';
+const CONTACT_EMAIL = 'monglesb@gmail.com';
 const EFFECTIVE_DATE = '2026년 6월 11일';
 
 export const TermsPage: React.FC = () => {
