@@ -1,7 +1,10 @@
 import React from 'react';
-import { ShieldCheck } from 'lucide-react';
+import { Mail, ShieldCheck } from 'lucide-react';
 import PrivacyBadges from '../components/common/PrivacyBadges';
 import SeoHead from '../components/seo/SeoHead';
+
+const CONTACT_EMAIL = 'jjttuk7@gmail.com';
+const EFFECTIVE_DATE = '2026년 6월 15일';
 
 export const PrivacyPage: React.FC = () => {
   return (
@@ -23,6 +26,9 @@ export const PrivacyPage: React.FC = () => {
           모두의 도구의 모든 도구는 입력 값과 업로드한 파일을 외부 서버로 전송하지
           않습니다. 처리 결과 또한 사용자의 브라우저 메모리 안에서만 만들어집니다.
         </p>
+        <p className="text-xs text-slate-500 mt-2 dark:text-slate-500">
+          시행일: {EFFECTIVE_DATE}
+        </p>
         <div className="mt-5">
           <PrivacyBadges />
         </div>
@@ -37,8 +43,21 @@ export const PrivacyPage: React.FC = () => {
       <h2>2. 광고 및 분석</h2>
       <p>
         본 서비스는 일부 페이지에서 Google AdSense 등 광고 네트워크 또는 방문 통계
-        서비스를 사용할 수 있습니다. 해당 서비스는 사용자의 브라우저에 쿠키를
-        설정할 수 있으며, 이는 각 서비스 제공자의 정책을 따릅니다.
+        서비스를 사용할 수 있습니다. 이 과정에서 Google 및 제3자 광고 사업자는 쿠키,
+        웹 비콘, IP 주소, 광고 식별자, 브라우저·기기 정보와 같은 기술을 사용해 광고
+        게재, 광고 성과 측정, 부정 이용 방지, 관심 기반 광고 제공을 수행할 수 있습니다.
+      </p>
+      <p>
+        Google이 파트너 사이트 또는 앱에서 수집한 데이터를 사용하는 방식은{' '}
+        <a
+          href="https://policies.google.com/technologies/partner-sites?hl=ko"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Google 파트너 사이트 또는 앱을 사용할 때 Google에서 데이터를 사용하는 방식
+        </a>
+        에서 확인할 수 있습니다. 사용자는 브라우저 설정 또는 Google 광고 설정을 통해
+        쿠키와 맞춤 광고 사용을 제한할 수 있습니다.
       </p>
 
       <h2>3. 파일 처리 방식</h2>
@@ -51,6 +70,15 @@ export const PrivacyPage: React.FC = () => {
       <h2>4. 문의</h2>
       <p>
         본 방침과 관련된 문의는 서비스 운영자 이메일을 통해 접수해 주시기 바랍니다.
+      </p>
+      <p className="not-prose">
+        <a
+          href={`mailto:${CONTACT_EMAIL}`}
+          className="inline-flex items-center gap-2 text-sm font-bold text-emerald-700 bg-emerald-50 border border-emerald-100 rounded-full px-4 py-2 hover:bg-emerald-100 transition-colors dark:text-emerald-300 dark:bg-emerald-950/40 dark:border-emerald-900 dark:hover:bg-emerald-950/60"
+        >
+          <Mail className="w-4 h-4" />
+          {CONTACT_EMAIL}
+        </a>
       </p>
     </article>
   );

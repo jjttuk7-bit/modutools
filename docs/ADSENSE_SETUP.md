@@ -26,7 +26,10 @@
 
 ## 2. 도메인 연결 절차
 
-권장 도메인: `modutools.kr` (브랜드명 + 한국 트래픽 신뢰도).
+현재 배포 기준 도메인: `www.modutools.kr`.
+
+> 중요: AdSense 신청 URL, canonical, sitemap, robots.txt는 모두 같은 호스트를 가리켜야 합니다.
+> 현재 apex 도메인(`modutools.kr`)이 열리지 않는다면 `https://www.modutools.kr` 기준으로 신청하세요.
 
 ### 2-1. 도메인 구입처
 
@@ -39,7 +42,7 @@
 ### 2-2. Netlify에 도메인 연결
 
 1. Netlify 대시보드 → 해당 사이트 → **Domain management** → **Add a domain**
-2. `modutools.kr` 입력 → 검증
+2. `www.modutools.kr` 입력 → 검증
 3. Netlify가 **DNS 레코드 안내**를 출력. 두 가지 옵션:
    - **A 옵션 (권장)** — Netlify DNS 사용: 도메인 등록처에 Netlify 네임서버 4개를 입력. 가장 간단·SSL 자동.
    - **B 옵션** — 외부 DNS 유지: A 레코드 `75.2.60.5` + CNAME `apex-loadbalancer.netlify.com` 설정.
@@ -59,14 +62,14 @@
 ```
 Netlify Dashboard → Environment variables
   Key:   SITE_URL
-  Value: https://modutools.kr
+  Value: https://www.modutools.kr
 ```
 
 `SITE_URL` 환경변수가 잡혀 있으면 `scripts/generate-sitemap.mjs`가 빌드 시점에 자동으로 그 값을 쓰므로 코드 수정 불필요.
 
 다만 `robots.txt`의 `Sitemap:` 라인은 정적 파일이라 한 번은 손 봐야 합니다.
 
-`index.html`의 절대 URL(canonical, og:url, og:image)도 modutools.kr 가정으로 박혀 있어 도메인 바뀌면 수정 필요. modutools.kr 그대로 가면 변경 없음.
+`index.html`의 절대 URL(canonical, og:url, og:image)도 실제 신청 도메인과 동일해야 합니다.
 
 ---
 
@@ -74,7 +77,8 @@ Netlify Dashboard → Environment variables
 
 ### 3-1. 사이트 기본 점검
 
-- [ ] 자체 도메인이 HTTPS로 정상 접속됨 (`https://modutools.kr`)
+- [ ] 자체 도메인이 HTTPS로 정상 접속됨 (`https://www.modutools.kr`)
+- [ ] `https://modutools.kr` apex 도메인을 쓸 계획이라면 DNS/SSL/리다이렉트가 정상 동작함
 - [ ] 모든 카테고리 페이지가 정상 렌더 (`/business`, `/qr`, `/submit`, `/thumbnail`, `/excel`)
 - [ ] 도구 25개 중 임의 표본 5개를 클릭해 정상 동작 확인
 - [ ] `/about`, `/terms`, `/privacy`, `/guide` 4개 정적 페이지 정상 노출
@@ -83,9 +87,9 @@ Netlify Dashboard → Environment variables
 
 ### 3-2. 색인·SEO 점검
 
-- [ ] `https://modutools.kr/sitemap.xml` 직접 접근 → 35개 URL 정상 XML
-- [ ] `https://modutools.kr/robots.txt` 정상
-- [ ] `https://modutools.kr/og-image.png` 이미지 표시
+- [ ] `https://www.modutools.kr/sitemap.xml` 직접 접근 → 35개 URL 정상 XML
+- [ ] `https://www.modutools.kr/robots.txt` 정상
+- [ ] `https://www.modutools.kr/og-image.png` 이미지 표시
 - [ ] [Google Search Console](https://search.google.com/search-console) 사이트 등록 + sitemap 제출
 - [ ] [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) 에서 OG 미리보기 확인
 - [ ] [카카오톡 공유 미리보기](https://developers.kakao.com/tool/clear/og)로 확인
@@ -98,7 +102,7 @@ Netlify Dashboard → Environment variables
 ### 3-4. AdSense 신청
 
 1. [adsense.google.com](https://adsense.google.com) 접속
-2. 사이트 URL `https://modutools.kr` 입력, 국가 `대한민국` 선택
+2. 사이트 URL `https://www.modutools.kr` 입력, 국가 `대한민국` 선택
 3. 결제 수단 정보(주소·계좌)는 신청 시점이 아니라 승인 후에 등록 가능
 4. 사이트 검토 시작 → 일반적으로 1~14일 소요
 5. 승인 또는 거절 메일 수신
@@ -189,8 +193,8 @@ AdSense 콘솔에서 **광고 단위**를 만들면 각 단위마다 `data-ad-sl
 
 | 변수 | 용도 | 기본값 |
 |---|---|---|
-| `SITE_URL` | sitemap.xml 생성 시 사용 (빌드 타임 Node) | `https://modutools.kr` |
-| `VITE_SITE_URL` | 브라우저 런타임에서 SeoHead가 참조 | `https://modutools.kr` |
+| `SITE_URL` | sitemap.xml 생성 시 사용 (빌드 타임 Node) | `https://www.modutools.kr` |
+| `VITE_SITE_URL` | 브라우저 런타임에서 SeoHead가 참조 | `https://www.modutools.kr` |
 | `VITE_ADSENSE_CLIENT_ID` | AdSlot 활성화 게이트. 미설정 시 광고 영역 비표시 | (미설정) |
 
 Netlify Dashboard → **Site settings → Build & deploy → Environment** 에서 추가.

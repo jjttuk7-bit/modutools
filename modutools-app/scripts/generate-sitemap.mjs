@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PROJECT_ROOT = resolve(__dirname, '..');
 
-const SITE_URL = (process.env.SITE_URL || 'https://modutools.kr').replace(/\/$/, '');
+const SITE_URL = (process.env.SITE_URL || 'https://www.modutools.kr').replace(/\/$/, '');
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const staticRoutes = ['/', '/guide', '/about', '/terms', '/privacy'];
