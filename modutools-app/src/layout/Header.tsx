@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { Layers, ShieldCheck } from 'lucide-react';
+import { BookOpen, Layers, ShieldCheck } from 'lucide-react';
 import { categories } from '../data/categories';
 import ThemeToggle from '../components/common/ThemeToggle';
 
@@ -26,6 +26,19 @@ export const Header: React.FC = () => {
         </Link>
 
         <nav className="hidden md:flex items-center gap-1 text-xs font-bold text-slate-600 dark:text-slate-300">
+          <NavLink
+            to="/guide"
+            className={({ isActive }) =>
+              `inline-flex items-center gap-1.5 px-3 py-2 rounded-lg transition-colors ${
+                isActive
+                  ? 'bg-slate-900 text-white dark:bg-slate-100 dark:text-slate-900'
+                  : 'hover:bg-slate-100 hover:text-slate-900 dark:hover:bg-slate-800 dark:hover:text-slate-100'
+              }`
+            }
+          >
+            <BookOpen className="w-3.5 h-3.5" />
+            가이드
+          </NavLink>
           {categories.map((c) => (
             <NavLink
               key={c.id}

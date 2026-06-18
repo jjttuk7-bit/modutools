@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { ShieldCheck, Award, Home } from 'lucide-react';
+import { ShieldCheck, Award, BookOpen, Home } from 'lucide-react';
 import { categories } from '../data/categories';
 import type { CategoryMeta } from '../types/tool';
 
@@ -41,6 +41,43 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeCategory }) => {
                 {categories.length}개 카테고리 한눈에
               </span>
             </span>
+          </NavLink>
+
+          <NavLink
+            to="/guide"
+            className={({ isActive }) =>
+              `flex items-center space-x-3 p-3 rounded-xl transition-all duration-150 border ${
+                isActive
+                  ? 'bg-[#0F172A] text-white border-[#0F172A] shadow-md shadow-slate-950/20 dark:bg-slate-100 dark:text-slate-900 dark:border-slate-100'
+                  : 'text-slate-700 hover:text-slate-900 border-transparent hover:bg-slate-50 dark:text-slate-300 dark:hover:bg-slate-800 dark:hover:text-slate-100'
+              }`
+            }
+          >
+            {({ isActive }) => (
+              <>
+                <span
+                  className={`p-2 rounded-lg ${
+                    isActive
+                      ? 'bg-white/15 text-white dark:bg-slate-900/20 dark:text-slate-900'
+                      : 'bg-slate-100 text-slate-500 dark:bg-slate-800 dark:text-slate-300'
+                  }`}
+                >
+                  <BookOpen className="w-4 h-4" />
+                </span>
+                <span className="flex flex-col">
+                  <span className="text-xs font-bold leading-tight">
+                    사용 가이드
+                  </span>
+                  <span
+                    className={`text-[10px] ${
+                      isActive ? 'text-slate-300 dark:text-slate-700' : 'text-slate-500 dark:text-slate-400'
+                    }`}
+                  >
+                    25개 도구 사용 상황
+                  </span>
+                </span>
+              </>
+            )}
           </NavLink>
 
           {categories.map((c) => {
