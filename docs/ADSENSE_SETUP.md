@@ -7,7 +7,7 @@
 
 ## 1. 준비 완료 체크리스트
 
-코드 측면의 AdSense 대비는 거의 끝났습니다. 남은 건 외부 작업(도메인 구입·연결, 펍 ID 발급) 입니다.
+코드 측면의 AdSense 대비는 거의 끝났습니다. 남은 건 Cloudflare Pages 배포 설정과 AdSense 콘솔 확인입니다.
 
 | # | 항목 | 상태 | 근거 / 위치 |
 |---|---|---|---|
@@ -18,18 +18,18 @@
 | 5 | 라우트별 메타 · OG · Twitter · JSON-LD 동적 주입 | ✅ | `src/components/seo/SeoHead.tsx`, `ToolSeoHead.tsx` |
 | 6 | OG 이미지 (`og-image.png`, 1200×630) | ✅ | `public/og-image.png`, `scripts/og-image.svg` |
 | 7 | AdSlot 환경변수 게이트 (승인 전 빈 광고 영역 비표시) | ✅ | `src/components/common/AdSlot.tsx` |
-| 8 | **자체 도메인 연결** | ⬜ | [§2](#2-도메인-연결-절차) |
+| 8 | **Cloudflare Pages 자체 도메인 연결** | ⬜ | [§2](#2-cloudflare-pages-도메인-연결) |
 | 9 | **AdSense 신청 및 승인** | ⬜ | [§3](#3-adsense-신청-직전-점검) |
 | 10 | **실제 AdSense 코드 통합** (승인 후) | ⬜ | [§4](#4-승인-후-활성화-절차) |
 
 ---
 
-## 2. 도메인 연결 절차
+## 2. Cloudflare Pages 도메인 연결
 
-현재 배포 기준 도메인: `www.modutools.kr`.
+현재 배포 및 AdSense 신청 기준 도메인: `modutools.kr`.
 
 > 중요: AdSense 신청 URL, canonical, sitemap, robots.txt는 모두 같은 호스트를 가리켜야 합니다.
-> 현재 apex 도메인(`modutools.kr`)이 열리지 않는다면 `https://www.modutools.kr` 기준으로 신청하세요.
+> 현재 신청 URL은 `https://modutools.kr`이므로 코드와 사이트맵도 apex 도메인 기준으로 통일합니다.
 
 ### 2-1. 도메인 구입처
 
@@ -39,35 +39,46 @@
 | **호스팅케이알 (hosting.kr)** | .kr 저렴 (연 2~3만 원대), DNS 관리 UI 단순 |
 | **Cloudflare** | 글로벌 표준, 다만 .kr 직판 안 함 |
 
-### 2-2. Netlify에 도메인 연결
+### 2-2. Cloudflare Pages에 도메인 연결
 
-1. Netlify 대시보드 → 해당 사이트 → **Domain management** → **Add a domain**
-2. `www.modutools.kr` 입력 → 검증
-3. Netlify가 **DNS 레코드 안내**를 출력. 두 가지 옵션:
-   - **A 옵션 (권장)** — Netlify DNS 사용: 도메인 등록처에 Netlify 네임서버 4개를 입력. 가장 간단·SSL 자동.
-   - **B 옵션** — 외부 DNS 유지: A 레코드 `75.2.60.5` + CNAME `apex-loadbalancer.netlify.com` 설정.
-4. SSL 자동 발급 (Let's Encrypt) — 보통 5~10분 안에 적용
+1. Cloudflare Dashboard → **Workers & Pages** → 해당 Pages 프로젝트 선택
+2. **Custom domains** → **Set up a custom domain**
+3. `modutools.kr` 입력 → Cloudflare가 안내하는 DNS 레코드 확인
+4. 도메인 네임서버가 Cloudflare를 사용 중이면 DNS 레코드가 자동 또는 간단 승인으로 연결됩니다.
+5. SSL/TLS는 **Full** 또는 Cloudflare Pages 기본 HTTPS 상태로 두고, `https://modutools.kr`가 정상 접속되는지 확인합니다.
 
-### 2-3. 코드 갱신
+### 2-3. Cloudflare Pages 빌드 설정
 
-도메인이 확정되면 다음 두 곳을 갱신:
-
-```
-1. scripts/generate-sitemap.mjs 상단의 SITE_URL 기본값
-2. public/robots.txt 의 Sitemap: 라인
-```
-
-또는 더 간단한 방법: **Netlify 환경변수만 세팅**.
+Cloudflare Pages 프로젝트의 빌드 설정은 다음 기준을 사용합니다.
 
 ```
-Netlify Dashboard → Environment variables
-  Key:   SITE_URL
-  Value: https://www.modutools.kr
+Build command: npm run build
+Build output directory: dist
+Root directory: modutools-app
+Node.js version: 20
 ```
 
-`SITE_URL` 환경변수가 잡혀 있으면 `scripts/generate-sitemap.mjs`가 빌드 시점에 자동으로 그 값을 쓰므로 코드 수정 불필요.
+환경변수는 Cloudflare Pages → **Settings** → **Environment variables** 에서 설정합니다.
 
-다만 `robots.txt`의 `Sitemap:` 라인은 정적 파일이라 한 번은 손 봐야 합니다.
+```
+SITE_URL=https://modutools.kr
+VITE_SITE_URL=https://modutools.kr
+VITE_ADSENSE_CLIENT_ID=ca-pub-7737972525635703
+```
+
+`SITE_URL`은 `sitemap.xml`과 정적 프리렌더 HTML 생성에 사용되고, `VITE_SITE_URL`은 React 런타임의 canonical/OG URL에 사용됩니다.
+
+### 2-4. 코드 갱신
+
+도메인이 바뀌면 다음 위치를 같은 호스트로 맞춥니다.
+
+```
+1. scripts/generate-sitemap.mjs 의 SITE_URL 기본값
+2. scripts/prerender-static.mjs 의 SITE_URL 기본값
+3. src/components/seo/SeoHead.tsx 의 SITE_URL 기본값
+4. public/robots.txt 의 Sitemap: 라인
+5. index.html 의 canonical, og:url, og:image
+```
 
 `index.html`의 절대 URL(canonical, og:url, og:image)도 실제 신청 도메인과 동일해야 합니다.
 
@@ -77,7 +88,7 @@ Netlify Dashboard → Environment variables
 
 ### 3-1. 사이트 기본 점검
 
-- [ ] 자체 도메인이 HTTPS로 정상 접속됨 (`https://www.modutools.kr`)
+- [ ] 자체 도메인이 HTTPS로 정상 접속됨 (`https://modutools.kr`)
 - [ ] `https://modutools.kr` apex 도메인을 쓸 계획이라면 DNS/SSL/리다이렉트가 정상 동작함
 - [ ] 모든 카테고리 페이지가 정상 렌더 (`/business`, `/qr`, `/submit`, `/thumbnail`, `/excel`)
 - [ ] 도구 25개 중 임의 표본 5개를 클릭해 정상 동작 확인
@@ -87,9 +98,9 @@ Netlify Dashboard → Environment variables
 
 ### 3-2. 색인·SEO 점검
 
-- [ ] `https://www.modutools.kr/sitemap.xml` 직접 접근 → 35개 URL 정상 XML
-- [ ] `https://www.modutools.kr/robots.txt` 정상
-- [ ] `https://www.modutools.kr/og-image.png` 이미지 표시
+- [ ] `https://modutools.kr/sitemap.xml` 직접 접근 → 35개 URL 정상 XML
+- [ ] `https://modutools.kr/robots.txt` 정상
+- [ ] `https://modutools.kr/og-image.png` 이미지 표시
 - [ ] [Google Search Console](https://search.google.com/search-console) 사이트 등록 + sitemap 제출
 - [ ] [Facebook Sharing Debugger](https://developers.facebook.com/tools/debug/) 에서 OG 미리보기 확인
 - [ ] [카카오톡 공유 미리보기](https://developers.kakao.com/tool/clear/og)로 확인
@@ -102,7 +113,7 @@ Netlify Dashboard → Environment variables
 ### 3-4. AdSense 신청
 
 1. [adsense.google.com](https://adsense.google.com) 접속
-2. 사이트 URL `https://www.modutools.kr` 입력, 국가 `대한민국` 선택
+2. 사이트 URL `https://modutools.kr` 입력, 국가 `대한민국` 선택
 3. 결제 수단 정보(주소·계좌)는 신청 시점이 아니라 승인 후에 등록 가능
 4. 사이트 검토 시작 → 일반적으로 1~14일 소요
 5. 승인 또는 거절 메일 수신
@@ -113,7 +124,7 @@ Netlify Dashboard → Environment variables
 
 ### 4-1. 환경변수 추가 (가장 먼저)
 
-Netlify Dashboard → Environment variables:
+Cloudflare Pages → **Settings** → **Environment variables**:
 
 ```
 VITE_ADSENSE_CLIENT_ID = ca-pub-XXXXXXXXXXXXXXXX
@@ -121,7 +132,7 @@ VITE_ADSENSE_CLIENT_ID = ca-pub-XXXXXXXXXXXXXXXX
 
 (승인 메일에 적힌 펍 ID, `ca-pub-`로 시작하는 16자리 숫자)
 
-추가 후 **Trigger redeploy** → `AdSlot` 컴포넌트가 모든 페이지에서 다시 노출되기 시작.
+추가 후 **Retry deployment** 또는 새 커밋 배포 → `AdSlot` 컴포넌트가 모든 페이지에서 다시 노출되기 시작.
 
 ### 4-2. ads.txt 활성 라인 추가
 
@@ -131,7 +142,7 @@ VITE_ADSENSE_CLIENT_ID = ca-pub-XXXXXXXXXXXXXXXX
 google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0
 ```
 
-커밋 + 푸시. Netlify가 자동 재배포.
+커밋 + 푸시. Cloudflare Pages가 자동 재배포.
 
 ### 4-3. AdSense 스크립트 + 실제 광고 코드 통합
 
@@ -193,11 +204,11 @@ AdSense 콘솔에서 **광고 단위**를 만들면 각 단위마다 `data-ad-sl
 
 | 변수 | 용도 | 기본값 |
 |---|---|---|
-| `SITE_URL` | sitemap.xml 생성 시 사용 (빌드 타임 Node) | `https://www.modutools.kr` |
-| `VITE_SITE_URL` | 브라우저 런타임에서 SeoHead가 참조 | `https://www.modutools.kr` |
+| `SITE_URL` | sitemap.xml 생성 시 사용 (빌드 타임 Node) | `https://modutools.kr` |
+| `VITE_SITE_URL` | 브라우저 런타임에서 SeoHead가 참조 | `https://modutools.kr` |
 | `VITE_ADSENSE_CLIENT_ID` | AdSlot 활성화 게이트. 미설정 시 광고 영역 비표시 | (미설정) |
 
-Netlify Dashboard → **Site settings → Build & deploy → Environment** 에서 추가.
+Cloudflare Pages → **Settings** → **Environment variables** 에서 추가.
 
 ---
 
@@ -236,6 +247,7 @@ modutools-app/
     sitemap.xml          # 자동 생성 (빌드 시점)
   scripts/
     generate-sitemap.mjs # SITE_URL 환경변수 기반
+    prerender-static.mjs # 35개 라우트 정적 HTML 생성
     generate-og.mjs      # SVG → PNG 변환 (수동)
     og-image.svg         # OG 디자인 원본
   src/

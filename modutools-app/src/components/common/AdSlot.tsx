@@ -21,7 +21,7 @@ export interface AdSlotProps {
  * 잡힐 수 있는 빈 광고 박스를 노출하지 않기 위한 안전 게이트.
  *
  * 승인 후:
- *   Netlify 환경변수에 VITE_ADSENSE_CLIENT_ID=ca-pub-XXXXXXXXXXXXXXXX 추가하면
+ *   Cloudflare Pages 환경변수에 VITE_ADSENSE_CLIENT_ID=ca-pub-XXXXXXXXXXXXXXXX 추가하면
  *   이 컴포넌트가 자동 활성화되고, 향후 실제 <ins class="adsbygoogle"> 코드로
  *   교체된다.
  */

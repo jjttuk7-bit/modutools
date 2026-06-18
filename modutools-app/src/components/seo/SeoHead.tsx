@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet-async';
 
 export const SITE_URL =
   (import.meta.env.VITE_SITE_URL as string | undefined)?.replace(/\/$/, '') ||
-  'https://www.modutools.kr';
+  'https://modutools.kr';
 export const SITE_NAME = '모두의 도구';
 const DEFAULT_OG_IMAGE = `${SITE_URL}/og-image.png`;
 

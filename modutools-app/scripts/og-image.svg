@@ -83,9 +83,9 @@
     회원가입 X · 결제 X · 광고 X · 5개 카테고리 · 25개 무료 도구
   </text>
 
-  <!-- www.modutools.kr badge bottom right -->
+  <!-- modutools.kr badge bottom right -->
   <g>
     <rect x="980" y="555" width="140" height="40" rx="20" fill="url(#accent)" />
-    <text x="1050" y="582" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="18" font-weight="800" fill="#0F172A" text-anchor="middle">www.modutools.kr</text>
+    <text x="1050" y="582" font-family="-apple-system, 'Segoe UI', sans-serif" font-size="18" font-weight="800" fill="#0F172A" text-anchor="middle">modutools.kr</text>
   </g>
 </svg>

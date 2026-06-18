@@ -5,4 +5,4 @@ User-agent: *
 Allow: /
 
 # 색인 우선순위 안내
-Sitemap: https://www.modutools.kr/sitemap.xml
+Sitemap: https://modutools.kr/sitemap.xml
