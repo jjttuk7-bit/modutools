@@ -5,6 +5,14 @@ export interface ImageDataState {
   height: number;
 }
 
+export interface ImageMeta {
+  filename: string;
+  type: string;
+  size: number;
+  width: number;
+  height: number;
+}
+
 export interface ImageOption {
   backgroundColor: string;
   backgroundType: 'color' | 'gradient' | 'image';
