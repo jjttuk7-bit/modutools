@@ -15,6 +15,8 @@ import SubmitHome from './routes/submit/SubmitHome';
 import SubmitToolPage from './routes/submit/SubmitToolPage';
 import ThumbnailHome from './routes/thumbnail/ThumbnailHome';
 import ThumbnailToolPage from './routes/thumbnail/ThumbnailToolPage';
+import ImageHome from './routes/image/ImageHome';
+import ImageToolPage from './routes/image/ImageToolPage';
 import ExcelHome from './routes/excel/ExcelHome';
 import ExcelToolPage from './routes/excel/ExcelToolPage';
 
@@ -45,6 +47,11 @@ export default function App() {
           <Route path="thumbnail">
             <Route index element={<ThumbnailHome />} />
             <Route path=":toolId" element={<ThumbnailToolPage />} />
+          </Route>
+
+          <Route path="image">
+            <Route index element={<ImageHome />} />
+            <Route path=":toolId" element={<ImageToolPage />} />
           </Route>
 
           <Route path="excel">
