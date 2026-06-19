@@ -103,7 +103,7 @@ export const toolGuides: Record<string, ToolGuide> = {
       '사업자등록증, 통장 사본, 신분증 사본을 각각 촬영한 뒤 순서대로 묶어 하나의 PDF로 제출할 수 있습니다.',
     beforeUse:
       '사진 가장자리가 잘렸거나 글자가 흐릿하면 반려될 수 있으니 PDF로 만들기 전에 원본 사진 품질을 확인하세요.',
-    relatedToolIds: ['pdf-merge', 'image-compress', 'pdf-mask'],
+    relatedToolIds: ['pdf-merge', 'compress', 'pdf-mask'],
   },
   'pdf-merge': {
     when:
@@ -139,7 +139,7 @@ export const toolGuides: Record<string, ToolGuide> = {
       '5MB 이하만 업로드되는 신청 페이지에서 8MB짜리 사진을 제한 안에 맞게 줄일 수 있습니다.',
     beforeUse:
       '너무 강하게 압축하면 글자가 흐려질 수 있으므로 제출용 문서는 압축 후 가독성을 확인하세요.',
-    relatedToolIds: ['photo-to-pdf', 'store-main-image'],
+    relatedToolIds: ['compress', 'photo-to-pdf', 'store-main-image'],
   },
   'youtube-thumbnail': {
     when:
@@ -175,7 +175,7 @@ export const toolGuides: Record<string, ToolGuide> = {
       '생활용품 판매 페이지에서 제품명, 용량, 주요 특징을 넣은 대표이미지를 만들어 상품 목록에서 잘 보이게 할 수 있습니다.',
     beforeUse:
       '마켓별 이미지 정책과 금지 문구가 다를 수 있으니 업로드 전 플랫폼 가이드를 확인하세요.',
-    relatedToolIds: ['image-compress', 'text-on-image', 'instagram-image'],
+    relatedToolIds: ['compress', 'text-on-image', 'instagram-image'],
   },
   'text-on-image': {
     when:
@@ -185,6 +185,51 @@ export const toolGuides: Record<string, ToolGuide> = {
     beforeUse:
       '배경과 글자 대비가 낮으면 읽기 어려우니 어두운 사진에는 밝은 글자, 밝은 사진에는 진한 글자를 선택하세요.',
     relatedToolIds: ['blog-cover', 'instagram-image', 'youtube-thumbnail'],
+  },
+  'compress': {
+    when:
+      '채용 사이트, 공공기관, 학교, 쇼핑몰 관리자처럼 이미지 업로드 용량 제한이 있는 곳에 사진을 올려야 할 때 사용합니다. 원본은 유지하고 제출용 사본만 가볍게 만들 수 있습니다.',
+    example:
+      '3MB짜리 증빙 사진을 500KB 이하 조건에 맞춰 줄인 뒤 신청서 첨부 파일로 올릴 수 있습니다.',
+    beforeUse:
+      '문서 사진이나 글자가 들어간 이미지는 압축 후 글자와 숫자가 흐려지지 않았는지 미리보기로 확인하세요.',
+    relatedToolIds: ['resize', 'jpg-converter', 'photo-to-pdf'],
+  },
+  'resize': {
+    when:
+      '가로·세로 픽셀 크기를 특정 규격에 맞춰야 할 때 사용합니다. 프로필 사진, 제출용 이미지, 쇼핑몰 대표 이미지처럼 크기 조건이 정해진 경우에 알맞습니다.',
+    example:
+      '800x800 픽셀 이미지만 받는 관리자 페이지에 맞춰 상품 사진을 정사각형 크기로 조정할 수 있습니다.',
+    beforeUse:
+      '비율을 강제로 바꾸면 얼굴이나 제품이 찌그러질 수 있으니 필요한 경우 비율 유지 옵션을 사용하세요.',
+    relatedToolIds: ['compress', 'crop-padding', 'store-main-image'],
+  },
+  'id-photo': {
+    when:
+      '이력서, 자격증 접수, 학생증, 시험 원서처럼 증명사진 크기와 비율을 맞춰야 할 때 사용합니다. 직접 크롭 위치를 확인하며 제출용 사진을 만들 수 있습니다.',
+    example:
+      '3.5x4.5cm 규격이 필요한 접수 페이지에 맞춰 얼굴 중심을 조정하고 JPG 파일로 저장할 수 있습니다.',
+    beforeUse:
+      '기관마다 배경색, 얼굴 크기, 어깨 포함 여부가 다를 수 있으니 최종 제출 전 안내문을 함께 확인하세요.',
+    relatedToolIds: ['compress', 'resize', 'jpg-converter'],
+  },
+  'jpg-converter': {
+    when:
+      'PNG, WEBP처럼 일부 사이트에서 거부되는 이미지 파일을 JPG로 바꿔야 할 때 사용합니다. 오래된 접수 시스템이나 쇼핑몰 관리자에서 특히 유용합니다.',
+    example:
+      '휴대폰에서 저장된 WEBP 이미지를 JPG로 변환해 블로그나 공공 포털 첨부 파일로 올릴 수 있습니다.',
+    beforeUse:
+      'JPG는 투명 배경을 보존하지 못하므로 투명 PNG는 배경색이 어떻게 채워지는지 변환 결과를 확인하세요.',
+    relatedToolIds: ['compress', 'resize', 'crop-padding'],
+  },
+  'crop-padding': {
+    when:
+      '이미지를 정사각형이나 특정 비율로 자르거나, 잘림 없이 흰 여백을 넣어 규격에 맞춰야 할 때 사용합니다. 상품 사진, 블로그 대표 이미지, 프로필 이미지 정리에 적합합니다.',
+    example:
+      '세로로 긴 제품 사진을 1:1 대표 이미지로 만들되 제품이 잘리지 않도록 좌우 여백을 추가할 수 있습니다.',
+    beforeUse:
+      '여백을 넣으면 실제 피사체가 작아 보일 수 있으니 업로드될 화면 크기에서 충분히 잘 보이는지 확인하세요.',
+    relatedToolIds: ['resize', 'jpg-converter', 'store-main-image'],
   },
   'remove-duplicates': {
     when:
