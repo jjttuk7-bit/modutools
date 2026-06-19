@@ -29,6 +29,7 @@ Thumbs.db
 # Temp
 .cache/
 .tmp/
+.worktrees/
 
 # Original apps kept locally as read-only reference (not for GitHub)
 apps-old/
