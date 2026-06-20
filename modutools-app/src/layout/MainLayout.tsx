@@ -1,10 +1,17 @@
 import React, { Suspense } from 'react';
 import { Outlet, useLocation, Link } from 'react-router-dom';
-import { Heart, Loader2 } from 'lucide-react';
+import { Heart, Loader2, Mail } from 'lucide-react';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import MobileToolTabs from './MobileToolTabs';
 import { categories } from '../data/categories';
+
+const CONTACT_EMAIL = 'monglesb@gmail.com';
+const feedbackMailto = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(
+  '[모두의 도구] 피드백·도구 제안',
+)}&body=${encodeURIComponent(
+  '모두의 도구를 사용해주셔서 감사합니다.\n\n사용 중 문제가 있었거나 새로 필요하신 도구가 있다면 아래에 자유롭게 적어주세요.\n\n1. 사용하신 도구:\n2. 문제 또는 제안 내용:\n3. 참고할 파일 형식/상황:\n',
+)}`;
 
 const RouteFallback: React.FC = () => (
   <div className="flex items-center justify-center gap-2 text-slate-400 py-24">
@@ -62,9 +69,13 @@ export const MainLayout: React.FC = () => {
             <Link to="/" className="hover:text-white transition-colors">
               홈
             </Link>
-            <Link to="/guide" className="hover:text-white transition-colors">
-              가이드
-            </Link>
+            <a
+              href={feedbackMailto}
+              className="inline-flex items-center gap-1 hover:text-white transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5" />
+              피드백·도구 제안
+            </a>
             <Link to="/about" className="hover:text-white transition-colors">
               소개
             </Link>
@@ -77,6 +88,20 @@ export const MainLayout: React.FC = () => {
             <span className="text-slate-700">|</span>
             <span className="text-slate-500 font-normal">v0.1.0</span>
           </div>
+        </div>
+
+        <div className="max-w-7xl mx-auto mt-5 rounded-2xl border border-slate-800 bg-slate-900/70 px-4 py-3 text-center md:text-left">
+          <p className="text-xs leading-relaxed text-slate-400">
+            모두의 도구를 사용해주셔서 감사합니다. 사용하면서 문제가 있거나
+            새로 필요하신 도구가 있다면{' '}
+            <a
+              href={feedbackMailto}
+              className="font-bold text-slate-200 underline-offset-4 hover:text-white hover:underline"
+            >
+              이메일로 피드백을 보내주세요
+            </a>
+            . 보내주신 의견은 다음 도구와 개선 작업에 참고하겠습니다.
+          </p>
         </div>
 
         <div className="max-w-7xl mx-auto mt-6 pt-4 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-2 text-[10px] text-slate-500">
