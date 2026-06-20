@@ -73,7 +73,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ activeCategory }) => {
                       isActive ? 'text-slate-300 dark:text-slate-700' : 'text-slate-500 dark:text-slate-400'
                     }`}
                   >
-                    25개 도구 사용 상황
+                    30개 도구 사용 상황
                   </span>
                 </span>
               </>

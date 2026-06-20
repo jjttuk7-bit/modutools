@@ -10,7 +10,7 @@ export const AboutPage: React.FC = () => {
     <article className="bg-white border border-slate-200 rounded-3xl p-7 md:p-9 prose prose-slate max-w-none dark:bg-slate-900 dark:border-slate-800 dark:prose-invert">
       <SeoHead
         title="소개 — 모두의 도구를 만든 이유"
-        description="대한민국 사장님·프리랜서를 위한 무료 실무 도구함. 회원가입·서버 전송 없이 브라우저 안에서만 처리하는 모두의 도구의 운영 원칙과 25가지 도구를 소개합니다."
+        description="대한민국 사장님·프리랜서를 위한 무료 실무 도구함. 회원가입·서버 전송 없이 브라우저 안에서만 처리하는 모두의 도구의 운영 원칙과 30가지 도구를 소개합니다."
         path="/about"
       />
       <header className="not-prose mb-6">
@@ -48,7 +48,7 @@ export const AboutPage: React.FC = () => {
 
       <h2>2. 어떤 도구가 들어 있나요?</h2>
       <p>
-        다섯 개 카테고리, 총 25개의 무료 도구가 있습니다. 모든 도구는 회원가입과 결제 없이
+        여섯 개 카테고리, 총 30개의 무료 도구가 있습니다. 모든 도구는 회원가입과 결제 없이
         즉시 사용할 수 있습니다.
       </p>
       <ul>

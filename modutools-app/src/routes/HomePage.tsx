@@ -16,7 +16,7 @@ export const HomePage: React.FC = () => {
     url: SITE_URL,
     inLanguage: 'ko-KR',
     description:
-      '회원가입 없이 바로 쓰는 사장님·프리랜서 무료 실무 도구함. 부가세·QR·PDF·썸네일·엑셀 정리 25가지.',
+      '회원가입 없이 바로 쓰는 사장님·프리랜서 무료 실무 도구함. 부가세·QR·PDF·썸네일·이미지·엑셀 정리 30가지.',
   };
 
   const organizationJsonLd = {

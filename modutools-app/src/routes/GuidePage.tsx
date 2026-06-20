@@ -35,7 +35,7 @@ export const GuidePage: React.FC = () => {
   return (
     <article className="bg-white border border-slate-200 rounded-3xl p-6 md:p-9 dark:bg-slate-900 dark:border-slate-800">
       <SeoHead
-        title="25가지 무료 업무 도구 사용 가이드"
+        title="30가지 무료 업무 도구 사용 가이드"
         description={`부가세 계산, QR 생성, PDF 정리, 썸네일 제작, 엑셀 정리까지 ${totalTools}가지 무료 도구를 언제 쓰면 좋은지 실제 상황별로 정리했습니다.`}
         path="/guide"
         type="article"
@@ -43,7 +43,7 @@ export const GuidePage: React.FC = () => {
           {
             '@context': 'https://schema.org',
             '@type': 'Article',
-            headline: '25가지 무료 업무 도구 사용 가이드',
+            headline: '30가지 무료 업무 도구 사용 가이드',
             description: `모두의 도구에 담긴 ${totalTools}가지 무료 실무 도구의 사용 상황, 예시, 주의사항을 정리한 안내서입니다.`,
             inLanguage: 'ko-KR',
             url: `${SITE_URL}/guide`,
@@ -68,7 +68,7 @@ export const GuidePage: React.FC = () => {
           무료 업무 도구 가이드
         </span>
         <h1 className="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-4 dark:text-slate-100">
-          25가지 무료 업무 도구, 언제 쓰면 좋을까요?
+          30가지 무료 업무 도구, 언제 쓰면 좋을까요?
         </h1>
         <p className="text-sm md:text-base text-slate-600 mt-4 leading-7 max-w-3xl dark:text-slate-400">
           모두의 도구는 계산, QR, PDF 제출 정리, 썸네일 제작, 엑셀 정리처럼
