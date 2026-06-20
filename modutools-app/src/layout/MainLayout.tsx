@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react';
 import { Outlet, useLocation, Link } from 'react-router-dom';
-import { Heart, Loader2, Mail } from 'lucide-react';
+import { Heart, Loader2, Mail, X } from 'lucide-react';
 import Header from './Header';
 import Sidebar from './Sidebar';
 import MobileToolTabs from './MobileToolTabs';
@@ -22,6 +22,7 @@ const RouteFallback: React.FC = () => (
 
 export const MainLayout: React.FC = () => {
   const location = useLocation();
+  const [feedbackOpen, setFeedbackOpen] = React.useState(false);
   const activeCategory = categories.find((c) =>
     location.pathname === c.path || location.pathname.startsWith(c.path + '/'),
   );
@@ -69,13 +70,14 @@ export const MainLayout: React.FC = () => {
             <Link to="/" className="hover:text-white transition-colors">
               홈
             </Link>
-            <a
-              href={feedbackMailto}
+            <button
+              type="button"
+              onClick={() => setFeedbackOpen(true)}
               className="inline-flex items-center gap-1 hover:text-white transition-colors"
             >
               <Mail className="w-3.5 h-3.5" />
               피드백·도구 제안
-            </a>
+            </button>
             <Link to="/about" className="hover:text-white transition-colors">
               소개
             </Link>
@@ -111,6 +113,49 @@ export const MainLayout: React.FC = () => {
             <Heart className="w-3 h-3 text-red-500 fill-red-500" />
           </span>
         </div>
+
+        {feedbackOpen && (
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/70 px-4"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="feedback-dialog-title"
+          >
+            <div className="w-full max-w-md rounded-3xl border border-slate-200 bg-white p-6 text-left shadow-2xl dark:border-slate-800 dark:bg-slate-900">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h2
+                    id="feedback-dialog-title"
+                    className="text-base font-extrabold text-slate-900 dark:text-slate-100"
+                  >
+                    피드백·도구 제안
+                  </h2>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600 dark:text-slate-400">
+                    모두의 도구를 사용해주셔서 감사합니다. 사용하면서 문제가 있거나
+                    새로 필요하신 도구가 있다면 이메일로 피드백을 보내주세요.
+                    보내주신 의견은 다음 도구와 개선 작업에 참고하겠습니다.
+                  </p>
+                </div>
+                <button
+                  type="button"
+                  onClick={() => setFeedbackOpen(false)}
+                  className="rounded-full p-2 text-slate-400 hover:bg-slate-100 hover:text-slate-700 dark:hover:bg-slate-800 dark:hover:text-slate-200"
+                  aria-label="피드백 팝업 닫기"
+                >
+                  <X className="h-4 w-4" />
+                </button>
+              </div>
+
+              <a
+                href={feedbackMailto}
+                className="mt-5 flex items-center justify-center gap-2 rounded-2xl bg-slate-900 px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-slate-800 dark:bg-slate-100 dark:text-slate-900 dark:hover:bg-white"
+              >
+                <Mail className="h-4 w-4" />
+                {CONTACT_EMAIL}
+              </a>
+            </div>
+          </div>
+        )}
       </footer>
     </div>
   );
