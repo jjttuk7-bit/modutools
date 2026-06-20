@@ -1,27 +1,44 @@
-import React from 'react';
+import React, { lazy } from 'react';
 import { Navigate, useParams } from 'react-router-dom';
-import ToolPlaceholder from '../_ToolPlaceholder';
-import SeoHead from '../../components/seo/SeoHead';
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
+import ToolSeoHead from '../../components/seo/ToolSeoHead';
 import { categoryById } from '../../data/categories';
+
+const ImageCompressTool = lazy(() => import('../../tools/image/compress/ImageCompressTool'));
+const ImageResizeTool = lazy(() => import('../../tools/image/resize/ImageResizeTool'));
+const IdPhotoTool = lazy(() => import('../../tools/image/id-photo/IdPhotoTool'));
+const JpgConverterTool = lazy(() => import('../../tools/image/jpg-converter/JpgConverterTool'));
+const CropPaddingTool = lazy(() => import('../../tools/image/crop-padding/CropPaddingTool'));
+
+const toolComponents: Record<string, React.LazyExoticComponent<React.ComponentType>> = {
+  compress: ImageCompressTool,
+  resize: ImageResizeTool,
+  'id-photo': IdPhotoTool,
+  'jpg-converter': JpgConverterTool,
+  'crop-padding': CropPaddingTool,
+};
 
 export default function ImageToolPage() {
   const { toolId } = useParams<{ toolId: string }>();
   const category = categoryById['image'];
-  const tool = category.tools.find((item) => item.id === toolId);
+  const ToolComponent = toolId ? toolComponents[toolId] : undefined;
 
-  if (!tool) {
+  if (!ToolComponent) {
     return <Navigate to={category.path} replace />;
   }
 
   return (
-    <>
-      <SeoHead
-        title={`${tool.name} 준비 중`}
-        description={`${tool.name} 도구는 이미지 정리 도구 카테고리에 연결될 예정입니다.`}
-        path={tool.path}
-        noindex
-      />
-      <ToolPlaceholder category={category} />
-    </>
+    <div className="space-y-4">
+      <ToolSeoHead categoryId="image" toolId={toolId!} />
+      <Link
+        to={category.path}
+        className="inline-flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-900"
+      >
+        <ArrowLeft className="w-3.5 h-3.5" />
+        {category.shortName}로 돌아가기
+      </Link>
+      <ToolComponent />
+    </div>
   );
 }

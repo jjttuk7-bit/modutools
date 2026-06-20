@@ -7,7 +7,7 @@ import ToolSeoHead from '../../components/seo/ToolSeoHead';
 const PdfMaskTool = lazy(() => import('../../tools/mask/MaskTool'));
 const PhotoToPdfTool = lazy(() => import('../../tools/submit/photo-to-pdf/PhotoToPdfTool'));
 const ImageCompressTool = lazy(
-  () => import('../../tools/submit/image-compress/ImageCompressTool'),
+  () => import('../../tools/image/compress/ImageCompressTool'),
 );
 const PdfMergeTool = lazy(() => import('../../tools/submit/pdf-merge/PdfMergeTool'));
 const PdfExtractTool = lazy(() => import('../../tools/submit/pdf-extract/PdfExtractTool'));
