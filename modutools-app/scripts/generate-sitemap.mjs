@@ -11,7 +11,7 @@ const TODAY = new Date().toISOString().slice(0, 10);
 
 const staticRoutes = ['/', '/guide', '/about', '/terms', '/privacy'];
 
-const categoryRoutes = ['/business', '/qr', '/submit', '/thumbnail', '/excel'];
+const categoryRoutes = ['/business', '/qr', '/submit', '/thumbnail', '/image', '/excel'];
 
 const toolRoutes = [
   '/business/vat-calculator',
@@ -34,6 +34,11 @@ const toolRoutes = [
   '/thumbnail/store-main-image',
   '/thumbnail/instagram-image',
   '/thumbnail/text-on-image',
+  '/image/compress',
+  '/image/resize',
+  '/image/id-photo',
+  '/image/jpg-converter',
+  '/image/crop-padding',
   '/excel/remove-duplicates',
   '/excel/merge-excel',
   '/excel/phone-cleaner',

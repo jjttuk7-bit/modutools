@@ -75,6 +75,19 @@ const categories = [
       ['split-by-column', '컬럼별 나누기', '지점, 담당자, 지역 같은 기준 컬럼에 따라 파일을 나누어 ZIP으로 저장합니다.'],
     ],
   },
+  {
+    id: 'image',
+    path: '/image',
+    name: '이미지 정리 도구',
+    description: '사진 용량, 픽셀 크기, 증명사진 규격, JPG 변환, 자르기와 여백을 브라우저에서 처리하는 무료 도구입니다.',
+    tools: [
+      ['compress', '이미지 압축', '업로드 용량 제한에 맞춰 사진 파일 크기를 줄입니다.'],
+      ['resize', '이미지 크기 변경', '가로와 세로 픽셀 크기를 원하는 규격으로 조정합니다.'],
+      ['id-photo', '증명사진 규격 맞추기', '이력서와 접수용 증명사진을 정해진 픽셀 규격으로 저장합니다.'],
+      ['jpg-converter', 'JPG 변환', 'PNG와 WEBP 이미지를 호환성 높은 JPG 파일로 변환합니다.'],
+      ['crop-padding', '자르기 / 여백 넣기', '정사각형과 지정 비율에 맞춰 이미지를 자르거나 여백을 넣습니다.'],
+    ],
+  },
 ];
 
 const toolEntries = categories.flatMap((category) =>
