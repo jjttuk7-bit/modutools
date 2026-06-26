@@ -11,6 +11,30 @@ const TODAY = new Date().toISOString().slice(0, 10);
 
 const staticRoutes = ['/', '/guide', '/about', '/terms', '/privacy'];
 
+const articleRoutes = [
+  '/guide/vat-filing-checklist',
+  '/guide/freelancer-33-refund',
+  '/guide/supply-price-vs-vat',
+  '/guide/margin-basics',
+  '/guide/quote-writing-guide',
+  '/guide/qr-code-basics',
+  '/guide/wifi-qr-guide',
+  '/guide/business-card-qr',
+  '/guide/qr-design-tips',
+  '/guide/photo-to-pdf-guide',
+  '/guide/pdf-merge-split',
+  '/guide/personal-info-masking',
+  '/guide/image-compress-guide',
+  '/guide/youtube-thumbnail-tips',
+  '/guide/blog-cover-guide',
+  '/guide/store-main-image-guide',
+  '/guide/instagram-image-guide',
+  '/guide/remove-duplicates-guide',
+  '/guide/phone-number-format',
+  '/guide/csv-korean-broken',
+  '/guide/merge-split-excel',
+];
+
 const categoryRoutes = ['/business', '/qr', '/submit', '/thumbnail', '/image', '/excel'];
 
 const toolRoutes = [
@@ -58,7 +82,12 @@ function changefreqFor(path) {
   return 'weekly';
 }
 
-const allRoutes = [...staticRoutes, ...categoryRoutes, ...toolRoutes];
+const allRoutes = [
+  ...staticRoutes,
+  ...articleRoutes,
+  ...categoryRoutes,
+  ...toolRoutes,
+];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

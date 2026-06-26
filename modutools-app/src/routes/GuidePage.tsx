@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpen, CheckCircle2, ClipboardList } from 'lucide-react';
 import { categories } from '../data/categories';
 import { toolGuides } from '../data/toolGuides';
+import { articles } from '../data/articles';
 import SeoHead, { SITE_URL } from '../components/seo/SeoHead';
 
 const allTools = categories.flatMap((category) => category.tools);
@@ -35,7 +36,7 @@ export const GuidePage: React.FC = () => {
   return (
     <article className="bg-white border border-slate-200 rounded-3xl p-6 md:p-9 dark:bg-slate-900 dark:border-slate-800">
       <SeoHead
-        title="30가지 무료 업무 도구 사용 가이드"
+        title={`${totalTools}가지 무료 업무 도구 사용 가이드`}
         description={`부가세 계산, QR 생성, PDF 정리, 썸네일 제작, 엑셀 정리까지 ${totalTools}가지 무료 도구를 언제 쓰면 좋은지 실제 상황별로 정리했습니다.`}
         path="/guide"
         type="article"
@@ -43,7 +44,7 @@ export const GuidePage: React.FC = () => {
           {
             '@context': 'https://schema.org',
             '@type': 'Article',
-            headline: '30가지 무료 업무 도구 사용 가이드',
+            headline: `${totalTools}가지 무료 업무 도구 사용 가이드`,
             description: `모두의 도구에 담긴 ${totalTools}가지 무료 실무 도구의 사용 상황, 예시, 주의사항을 정리한 안내서입니다.`,
             inLanguage: 'ko-KR',
             url: `${SITE_URL}/guide`,
@@ -68,7 +69,7 @@ export const GuidePage: React.FC = () => {
           무료 업무 도구 가이드
         </span>
         <h1 className="text-2xl md:text-4xl font-extrabold text-slate-900 tracking-tight mt-4 dark:text-slate-100">
-          30가지 무료 업무 도구, 언제 쓰면 좋을까요?
+          {totalTools}가지 무료 업무 도구, 언제 쓰면 좋을까요?
         </h1>
         <p className="text-sm md:text-base text-slate-600 mt-4 leading-7 max-w-3xl dark:text-slate-400">
           모두의 도구는 계산, QR, PDF 제출 정리, 썸네일 제작, 엑셀 정리처럼
@@ -103,6 +104,42 @@ export const GuidePage: React.FC = () => {
           </div>
         </div>
       </header>
+
+      <section className="mt-8">
+        <h2 className="text-xl font-extrabold text-slate-900 tracking-tight dark:text-slate-100">
+          심화 가이드
+        </h2>
+        <p className="text-sm text-slate-600 mt-2 leading-6 dark:text-slate-400">
+          도구 사용법을 넘어, 실제 업무에서 자주 부딪히는 세금·금액·견적 문제를
+          따로 정리한 글입니다.
+        </p>
+        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+          {articles.map((article) => (
+            <Link
+              key={article.slug}
+              to={`/guide/${article.slug}`}
+              className="block rounded-2xl border border-slate-200 bg-slate-50/50 p-5 hover:border-slate-300 dark:bg-slate-950/30 dark:border-slate-800 dark:hover:border-slate-700"
+            >
+              <div className="flex items-center gap-2">
+                <BookOpen className="w-4 h-4 text-slate-500" />
+                <span className="text-[11px] font-bold text-slate-500 dark:text-slate-400">
+                  약 {article.readingMinutes}분
+                </span>
+              </div>
+              <h3 className="text-base font-extrabold text-slate-900 mt-2 dark:text-slate-100">
+                {article.title}
+              </h3>
+              <p className="text-xs text-slate-600 mt-2 leading-5 dark:text-slate-400">
+                {article.lead}
+              </p>
+              <span className="inline-flex items-center gap-1 text-[11px] font-extrabold text-slate-700 mt-3 dark:text-slate-300">
+                자세히 보기
+                <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </Link>
+          ))}
+        </div>
+      </section>
 
       <div className="mt-8 space-y-9">
         {categories.map((category) => (

@@ -5,6 +5,7 @@ import MainLayout from './layout/MainLayout';
 import HomePage from './routes/HomePage';
 import PrivacyPage from './routes/PrivacyPage';
 import GuidePage from './routes/GuidePage';
+import ArticlePage from './routes/ArticlePage';
 import AboutPage from './routes/AboutPage';
 import TermsPage from './routes/TermsPage';
 import BusinessHome from './routes/business/BusinessHome';
@@ -62,7 +63,10 @@ export default function App() {
           <Route path="mask" element={<Navigate to="/submit/pdf-mask" replace />} />
 
           <Route path="privacy" element={<PrivacyPage />} />
-          <Route path="guide" element={<GuidePage />} />
+          <Route path="guide">
+            <Route index element={<GuidePage />} />
+            <Route path=":slug" element={<ArticlePage />} />
+          </Route>
           <Route path="about" element={<AboutPage />} />
           <Route path="terms" element={<TermsPage />} />
 
